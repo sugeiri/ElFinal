@@ -104,18 +104,32 @@ create table tamano
 (
 	id_tamano int not null primary key,
 	descr_tamano varchar(50) not null,
-	cant_emp_nec_tamano int not null,
-	prioridad_tamano int not null -- 1 a 3 (1 = Maxima, 2=Media,3=Menor)
+	estado_tamano char(1) not null
+)
+create table caracteristicas(
+	id_caracteristica int not null primary key,
+	descr_caracteristica varchar(50) not null,
+	estado_caracteristica char(1) not null,
+	impor_caraceristica int not null --	1 a 3 (1 = Poco Importante, 2=Medio,3=Muy Importante)
 )
 
+--PARA LA PRIORIDAD SE SUMA LA IMPORTANCIA DE TODAS LAS CARACTERISTICAS DEL BACHE 
+--Y SE DIVIDE ENTRE SUMA DE TODAS LAS CARACTERISTICAS CREADAS, PARA TENER UN PORCENTAJE
 create table bache( --> numero de ident, calle,tamano,posicion, distrito, prioridad,coste
 	id_bache int not null primary key,
 	id_calle_bache int not null Constraint FK_calle_bache FOREIGN KEY REFERENCES CALLE(id_calle),
 	id_tamano_bache int not null Constraint FK_tamano_bache FOREIGN KEY REFERENCES tamano(id_tamano),
 	id_posicion_bache int not null Constraint FK_pos_bache FOREIGN KEY REFERENCES posicion(id_posicion),
+	prioridad_bache	   int not null, --	1 a 3 (1 = Poca, 2=Media,3=Maxima) --Calculada
 	estado_bache char(1) not null,
 	reportado_por_bache int not null Constraint FK_bache_persona FOREIGN KEY REFERENCES Persona(id_persona),
 	fecha_rep_bache datetime not null
+)
+create table caracteristicas_bache --PARA CALCULAR LA PRIORIDAD
+(
+	id_bache_cb		  int not null Constraint fk_bache_cb foreign key references bache(id_bache),
+	id_caract_cb	  int not null Constraint fk_caract_cb foreign key references caracteristicas(id_caracteristica),
+	primary key(id_bache_cb,id_caract_cb)
 )
 create table tipo_empleado(
 	id_t_empleado int not null primary key,
@@ -129,9 +143,16 @@ create table empleado(
 	estado_empleado char(1) not null,
 	id_tipo_empleado int not null Constraint FK_t_empleado FOREIGN KEY REFERENCES tipo_empleado(id_t_empleado),
 )
+create table tipo_emp_tamano
+(
+	id_tamano_tet int not null Constraint FK_tamano_tet FOREIGN KEY REFERENCES tamano(id_tamano),
+	id_t_emp_tet int not null Constraint FK_t_empleado_tet FOREIGN KEY REFERENCES tipo_empleado(id_t_empleado),
+	cant_req_tet int not null,
+	primary key(id_tamano_tet,id_t_emp_tet)
+)
 create table peticion_obra(
 	id_peticion int not null primary key,
-	id_bache_peticion int not null,
+	id_bache_peticion int not null Constraint fk_bache_peticion foreign key references bache(id_bache),
 	duracion_peticion decimal(6,2) not null,
 	estado_peticion char(1) not null,
 	costo_repa_peticion decimal(12,2) not null
@@ -169,7 +190,9 @@ create table Equipo
 	descr_equipo varchar(100) not null,
 	estado_equipo char(1) not null,
 	id_t_equipo int not null Constraint FK_t_equipo FOREIGN KEY REFERENCES tipo_equipo(id_tipo_equipo),
-	costo_uso_x_h_equipo decimal(12,2) not null
+	costo_uso_x_h_equipo decimal(12,2) not null,
+	usar_en_frio_equipo char(1) not null,
+	usar_en_caliente_equipo char(1) not null
 )
 create table peticion_brigada(
 	id_peticion_pb int not null Constraint FK_peticion_pb FOREIGN KEY REFERENCES peticion_obra(id_peticion),
@@ -185,20 +208,55 @@ create table tipo_dano
 (
 	id_tipo_dano int not null primary key,
 	descr_tipo_dano varchar(100) not null,
-	estado_tipo_dano char(1) not null
+	estado_tipo_dano char(1) not null,
+	nivel_prio_tipo_dano int not null, --1=Poco,2=Medio,3=Alto
+	duracion_rep_tipo_Dano decimal(6,2) not null,
+	Rep_en_frio	char(1) not null -- SI es en frio se marca, si no, es en caliente
 )
 create table danos
 (
-	id_danos int not null primary key,
-	id_bache int not null Constraint FK_bache_danos FOREIGN KEY REFERENCES Bache(id_bache),
+	id_danos int not null ,
+	id_bache_danos int not null Constraint FK_bache_danos FOREIGN KEY REFERENCES Bache(id_bache),
 	id_t_dano int not null Constraint FK_tdano FOREIGN KEY REFERENCES tipo_dano(id_tipo_dano),
-	descr_dano varchar(max) not null,
-	t_subsanamiento_dano decimal(12,2) not null
+	comentario_dano varchar(max) not null,
+	fecha_reg_dano datetime not null,
+	primary key(id_danos)
 )
-create table det_danos
+create table danos_cuidadano
 (
-	id_danos_detd int not null Constraint FK_danos_det FOREIGN KEY REFERENCES danos(id_danos),
-	id_persona_detd int not null constraint fk_persona_dano_dt FOREIGN KEY REFERENCES persona(id_persona),
-	subsanamiento_detd decimal(12,2) not null
-	primary key(id_danos_detd,id_persona_detd)
+	id_danos_dc int not null Constraint FK_danos_dc FOREIGN KEY REFERENCES danos(id_danos),
+	id_persona_dc int not null constraint fk_persona_dano_dc FOREIGN KEY REFERENCES persona(id_persona),
+	primary key(id_danos_dc,id_persona_dc)
+)
+create  table Material_TipoDano
+(
+	id_material_mtd int not null Constraint FK_material_mtd FOREIGN KEY REFERENCES material(id_material),
+	id_t_dano_mtd int not null Constraint FK_tdano_mtd FOREIGN KEY REFERENCES tipo_dano(id_tipo_dano),
+	cant_usar_mtd decimal(6,2) not null,
+	costo_t_mtd	decimal(12,2) not null,
+	primary key(id_material_mtd,id_t_dano_mtd)
+)
+create table TipoDano_equipo(
+	id_TDano_tde int not null Constraint FK_TDano_tde FOREIGN KEY REFERENCES  tipo_dano(id_tipo_dano),
+	id_equipo_tde int not null Constraint FK_equipo_tde FOREIGN KEY REFERENCES Equipo(id_equipo),
+	primary key(id_TDano_tde,id_equipo_tde)
+)
+
+create table material_dano
+(
+	id_dano_md int not null Constraint FK_dano_md FOREIGN KEY REFERENCES danos(id_danos),
+	id_material_md int not null Constraint FK_material_md FOREIGN KEY REFERENCES material(id_material),
+	primary key(id_dano_md,id_material_md)
+)	
+create table tipo_emp_TDano
+(
+	id_TDano_tetd int not null Constraint FK_TDano_tetd FOREIGN KEY REFERENCES tipo_dano(id_tipo_dano),
+	id_t_emp_tetd int not null Constraint FK_t_empleado_tetd FOREIGN KEY REFERENCES tipo_empleado(id_t_empleado),
+	cant_req_tetd int not null,
+	primary key(id_TDano_tetd,id_t_emp_tetd)
+)
+create table TDano_brigada(
+	id_Dano_db int not null Constraint FK_Dano_tdb FOREIGN KEY REFERENCES danos(id_danos),
+	id_empleado_db int not null Constraint FK_empleado_tdb FOREIGN KEY REFERENCES empleado(id_empleado),
+	primary key(id_Dano_db,id_empleado_db)
 )
