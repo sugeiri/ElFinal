@@ -100,22 +100,34 @@ create table posicion
 	descr_posicion varchar(20) not null,
 	estado_posicion char(1) not null
 )
+create table tamano
+(
+	id_tamano int not null primary key,
+	descr_tamano varchar(50) not null,
+	cant_emp_nec_tamano int not null,
+	prioridad_tamano int not null -- 1 a 3 (1 = Maxima, 2=Media,3=Menor)
+)
+
 create table bache( --> numero de ident, calle,tamano,posicion, distrito, prioridad,coste
 	id_bache int not null primary key,
 	id_calle_bache int not null Constraint FK_calle_bache FOREIGN KEY REFERENCES CALLE(id_calle),
-	tamano_bache int not null,
+	id_tamano_bache int not null Constraint FK_tamano_bache FOREIGN KEY REFERENCES tamano(id_tamano),
 	id_posicion_bache int not null Constraint FK_pos_bache FOREIGN KEY REFERENCES posicion(id_posicion),
-	prioridad_bache	 int not null,-- 1 a 3 (1 = Maxima, 2=Media,3=Menor)
 	estado_bache char(1) not null,
 	reportado_por_bache int not null Constraint FK_bache_persona FOREIGN KEY REFERENCES Persona(id_persona),
 	fecha_rep_bache datetime not null
+)
+create table tipo_empleado(
+	id_t_empleado int not null primary key,
+	descr_t_empleado varchar(30) not null,
+	sueldo_x_hora_t_empleado decimal(12,2) not null
 )
 create table empleado(
 	id_empleado int not null primary key,
 	id_persona_empleado  int not null Constraint FK_emp_persona FOREIGN KEY REFERENCES Persona(id_persona),
 	fecha_ing_empleado datetime not null,
 	estado_empleado char(1) not null,
-	sueldo_x_hora_empleado decimal(12,2) not null
+	id_tipo_empleado int not null Constraint FK_t_empleado FOREIGN KEY REFERENCES tipo_empleado(id_t_empleado),
 )
 create table peticion_obra(
 	id_peticion int not null primary key,
@@ -135,10 +147,10 @@ create table material
 create  table Material_TamanoBache
 (
 	id_material_mtb int not null Constraint FK_material_mtb FOREIGN KEY REFERENCES material(id_material),
-	tamano_bache_mtb int not null,
+	id_tamano_mtb int not null Constraint FK_tamano_mtb FOREIGN KEY REFERENCES tamano(id_tamano),
 	cant_usar_mtb decimal(6,2) not null,
 	costo_t_mtb	decimal(12,2) not null,
-	primary key(id_material_mtb,tamano_bache_mtb)
+	primary key(id_material_mtb,id_tamano_mtb)
 )
 create table material_peticion
 (
@@ -181,5 +193,12 @@ create table danos
 	id_bache int not null Constraint FK_bache_danos FOREIGN KEY REFERENCES Bache(id_bache),
 	id_t_dano int not null Constraint FK_tdano FOREIGN KEY REFERENCES tipo_dano(id_tipo_dano),
 	descr_dano varchar(max) not null,
-	subsanamiento_dano decimal(12,2) not null
+	t_subsanamiento_dano decimal(12,2) not null
+)
+create table det_danos
+(
+	id_danos_detd int not null Constraint FK_danos_det FOREIGN KEY REFERENCES danos(id_danos),
+	id_persona_detd int not null constraint fk_persona_dano_dt FOREIGN KEY REFERENCES persona(id_persona),
+	subsanamiento_detd decimal(12,2) not null
+	primary key(id_danos_detd,id_persona_detd)
 )
