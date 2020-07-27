@@ -198,11 +198,10 @@ grant all on  receta to public;
 create table Formula_receta
 (
 	id_receta_fr   int not null constraint FK_receta_fr FOREIGN KEY REFERENCES receta(id_receta),
-	id_cat_art_fr int not null constraint FK_CatArt_fr FOREIGN KEY REFERENCES Categoria_Articulo(id_cat_articulo),
-	id_GArt_fr int not null constraint FK_GArt_fr FOREIGN KEY REFERENCES Grupo_articulo(id_g_articulo),
-	id_t_art_fr int not null constraint FK_TArt_fr FOREIGN KEY REFERENCES Tipo_articulo(id_t_articulo),
+	id_articulo_fr int not null constraint FK_Art_fr FOREIGN KEY REFERENCES articulo(id_articulo),
 	cant_art_fr	   decimal(6,2) not null,
-	primary key(id_receta_fr,id_cat_art_fr,id_GArt_fr,id_t_art_fr)
+	no_sust_art_fr char(1) not null
+	primary key(id_receta_fr,id_articulo_fr)
 )
 grant all on  Formula_receta to public;
 create table Carro_compra
