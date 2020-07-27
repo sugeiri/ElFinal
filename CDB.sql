@@ -142,6 +142,13 @@ create table Unidad_Medida
 	estado_unidad_m char(1) not null
 )
 grant all on  Unidad_Medida to public;
+CREATE TABLE CATEGORIA_ARTICULO
+(
+	id_cat_articulo int not null primary key,
+	descr_cat_articulo varchar(100) not null,
+	estado_cat_articulo char(1) not null
+)
+grant all on  CATEGORIA_ARTICULO to public;
 CREATE TABLE GRUPO_ARTICULO
 (
 	id_g_articulo int not null primary key,
@@ -157,12 +164,13 @@ CREATE TABLE TIPO_ARTICULO
 	id_unidad_m char(5) not null  Constraint FK_UnidadM_TArt FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
 )
 grant all on  TIPO_ARTICULO to public;
+
 CREATE TABLE ARTICULO
 (	
 	id_articulo int not null primary key,
 	descr_articulo varchar(500) not null,
 	estado_articulo char(1) not null,
-	id_gart_articulo int not null Constraint FK_GArt_Articulo FOREIGN KEY REFERENCES GRUPO_ARTICULO(id_g_articulo),
+	id_cat_articulo int not null Constraint FK_cat_Articulo FOREIGN KEY REFERENCES CATEGORIA_ARTICULO(id_cat_articulo),
 	id_tart_articulo int not null Constraint FK_TArt_Articulo FOREIGN KEY REFERENCES TIPO_ARTICULO(id_t_articulo),
 	aplica_inv_articulo char(1) not null,
 	creado_p_articulo varchar(20) not null,
@@ -186,12 +194,15 @@ create table receta
 	id_tipo_receta int not null constraint FK_treceta FOREIGN KEY REFERENCES tipo_receta(id_t_receta),
 )
 grant all on  receta to public;
+
 create table Formula_receta
 (
 	id_receta_fr   int not null constraint FK_receta_fr FOREIGN KEY REFERENCES receta(id_receta),
-	id_t_articulo_fr int not null constraint FK_articulo_fr FOREIGN KEY REFERENCES Tipo_articulo(id_t_articulo),
+	id_cat_art_fr int not null constraint FK_CatArt_fr FOREIGN KEY REFERENCES Categoria_Articulo(id_cat_articulo),
+	id_GArt_fr int not null constraint FK_GArt_fr FOREIGN KEY REFERENCES Grupo_articulo(id_g_articulo),
+	id_t_art_fr int not null constraint FK_TArt_fr FOREIGN KEY REFERENCES Tipo_articulo(id_t_articulo),
 	cant_art_fr	   decimal(6,2) not null,
-	primary key(id_receta_fr,id_t_articulo_fr)
+	primary key(id_receta_fr,id_cat_art_fr,id_GArt_fr,id_t_art_fr)
 )
 grant all on  Formula_receta to public;
 create table Carro_compra
