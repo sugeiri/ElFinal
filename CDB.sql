@@ -173,6 +173,7 @@ CREATE TABLE ARTICULO
 	id_cat_articulo int not null Constraint FK_cat_Articulo FOREIGN KEY REFERENCES CATEGORIA_ARTICULO(id_cat_articulo),
 	id_tart_articulo int not null Constraint FK_TArt_Articulo FOREIGN KEY REFERENCES TIPO_ARTICULO(id_t_articulo),
 	aplica_inv_articulo char(1) not null,
+	foto_articulo		varbinary(MAX),
 	creado_p_articulo varchar(20) not null,
 	fecha_c_articulo datetime not null,
 	mod_p_articulo varchar(20) not null,
