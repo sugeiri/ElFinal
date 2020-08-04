@@ -46,11 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Clases.cs" />
+    <Compile Include="C_Receta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="C_Receta.designer.cs">
+      <DependentUpon>C_Receta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funciones.cs" />
+    <Compile Include="C_TipoArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_TipoArticulo.designer.cs">
+      <DependentUpon>C_TipoArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Articulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Articulo.designer.cs">
+      <DependentUpon>C_Articulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,18 +92,36 @@
     <Compile Include="Formula.Designer.cs">
       <DependentUpon>Formula.cs</DependentUpon>
     </Compile>
-    <Compile Include="TipoArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TipoArticulo.Designer.cs">
-      <DependentUpon>TipoArticulo.cs</DependentUpon>
-    </Compile>
     <Compile Include="receta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="receta.Designer.cs">
       <DependentUpon>receta.cs</DependentUpon>
     </Compile>
+    <Compile Include="TipoArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoArticulo.Designer.cs">
+      <DependentUpon>TipoArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Pant_Gen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Pant_Gen.designer.cs">
+      <DependentUpon>C_Pant_Gen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="C_Receta.resx">
+      <DependentUpon>C_Receta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_TipoArticulo.resx">
+      <DependentUpon>C_TipoArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Articulo.resx">
+      <DependentUpon>C_Articulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,11 +140,14 @@
     <EmbeddedResource Include="Formula.resx">
       <DependentUpon>Formula.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="receta.resx">
+      <DependentUpon>receta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TipoArticulo.resx">
       <DependentUpon>TipoArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="receta.resx">
-      <DependentUpon>receta.cs</DependentUpon>
+    <EmbeddedResource Include="C_Pant_Gen.resx">
+      <DependentUpon>C_Pant_Gen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

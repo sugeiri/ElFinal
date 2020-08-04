@@ -28,28 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Articulo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BCat = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.BSeguir = new System.Windows.Forms.Button();
+            this.tid = new System.Windows.Forms.TextBox();
+            this.tdescr = new System.Windows.Forms.TextBox();
+            this.Tcat = new System.Windows.Forms.TextBox();
+            this.TDescr_Cat = new System.Windows.Forms.TextBox();
+            this.CB_Estado = new System.Windows.Forms.ComboBox();
+            this.Tdescr_Grupo = new System.Windows.Forms.TextBox();
+            this.TGrupo = new System.Windows.Forms.TextBox();
+            this.BGrupo = new System.Windows.Forms.Button();
+            this.Tdescr_Tipo = new System.Windows.Forms.TextBox();
+            this.TTipo = new System.Windows.Forms.TextBox();
+            this.BTipo = new System.Windows.Forms.Button();
+            this.PB_Foto = new System.Windows.Forms.PictureBox();
+            this.CB_AplicaInv = new System.Windows.Forms.CheckBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Foto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,15 +85,16 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripcion:";
             // 
-            // button1
+            // BCat
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Categoria";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BCat.Location = new System.Drawing.Point(1, 90);
+            this.BCat.Name = "BCat";
+            this.BCat.Size = new System.Drawing.Size(133, 23);
+            this.BCat.TabIndex = 3;
+            this.BCat.Text = "Categoria";
+            this.BCat.UseVisualStyleBackColor = true;
+            this.BCat.Click += new System.EventHandler(this.BCat_Click);
             // 
             // label4
             // 
@@ -112,147 +116,171 @@
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BSeguir
             // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(554, 197);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 44);
-            this.button3.TabIndex = 6;
-            this.button3.UseVisualStyleBackColor = true;
+            this.BSeguir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BSeguir.BackgroundImage")));
+            this.BSeguir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BSeguir.Location = new System.Drawing.Point(554, 197);
+            this.BSeguir.Name = "BSeguir";
+            this.BSeguir.Size = new System.Drawing.Size(46, 44);
+            this.BSeguir.TabIndex = 6;
+            this.BSeguir.UseVisualStyleBackColor = true;
+            this.BSeguir.Click += new System.EventHandler(this.BSeguir_Click);
             // 
-            // textBox1
+            // tid
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.tid.Location = new System.Drawing.Point(137, 33);
+            this.tid.Name = "tid";
+            this.tid.Size = new System.Drawing.Size(100, 20);
+            this.tid.TabIndex = 7;
+            this.tid.TextChanged += new System.EventHandler(this.TId_TextChanged);
+            this.tid.Leave += new System.EventHandler(this.TId_Leave);
             // 
-            // textBox2
+            // tdescr
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 20);
-            this.textBox2.TabIndex = 8;
+            this.tdescr.Location = new System.Drawing.Point(137, 65);
+            this.tdescr.Name = "tdescr";
+            this.tdescr.Size = new System.Drawing.Size(326, 20);
+            this.tdescr.TabIndex = 8;
             // 
-            // textBox3
+            // Tcat
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(58, 20);
-            this.textBox3.TabIndex = 9;
+            this.Tcat.Location = new System.Drawing.Point(137, 92);
+            this.Tcat.Name = "Tcat";
+            this.Tcat.Size = new System.Drawing.Size(58, 20);
+            this.Tcat.TabIndex = 9;
+            this.Tcat.Leave += new System.EventHandler(this.Tcat_Leave);
             // 
-            // textBox4
+            // TDescr_Cat
             // 
-            this.textBox4.Location = new System.Drawing.Point(197, 92);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(266, 20);
-            this.textBox4.TabIndex = 10;
+            this.TDescr_Cat.BackColor = System.Drawing.SystemColors.Info;
+            this.TDescr_Cat.Location = new System.Drawing.Point(197, 92);
+            this.TDescr_Cat.Name = "TDescr_Cat";
+            this.TDescr_Cat.ReadOnly = true;
+            this.TDescr_Cat.Size = new System.Drawing.Size(266, 20);
+            this.TDescr_Cat.TabIndex = 10;
             // 
-            // comboBox1
+            // CB_Estado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(365, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(98, 21);
-            this.comboBox1.TabIndex = 11;
+            this.CB_Estado.FormattingEnabled = true;
+            this.CB_Estado.Location = new System.Drawing.Point(365, 33);
+            this.CB_Estado.Name = "CB_Estado";
+            this.CB_Estado.Size = new System.Drawing.Size(98, 21);
+            this.CB_Estado.TabIndex = 11;
             // 
-            // textBox5
+            // Tdescr_Grupo
             // 
-            this.textBox5.Location = new System.Drawing.Point(197, 118);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(266, 20);
-            this.textBox5.TabIndex = 14;
+            this.Tdescr_Grupo.BackColor = System.Drawing.SystemColors.Info;
+            this.Tdescr_Grupo.Location = new System.Drawing.Point(197, 118);
+            this.Tdescr_Grupo.Name = "Tdescr_Grupo";
+            this.Tdescr_Grupo.ReadOnly = true;
+            this.Tdescr_Grupo.Size = new System.Drawing.Size(266, 20);
+            this.Tdescr_Grupo.TabIndex = 14;
             // 
-            // textBox6
+            // TGrupo
             // 
-            this.textBox6.Location = new System.Drawing.Point(137, 118);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(58, 20);
-            this.textBox6.TabIndex = 13;
+            this.TGrupo.Location = new System.Drawing.Point(137, 118);
+            this.TGrupo.Name = "TGrupo";
+            this.TGrupo.Size = new System.Drawing.Size(58, 20);
+            this.TGrupo.TabIndex = 13;
+            this.TGrupo.Leave += new System.EventHandler(this.TGrupo_Leave);
             // 
-            // button4
+            // BGrupo
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1, 116);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Grupo";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BGrupo.Location = new System.Drawing.Point(1, 116);
+            this.BGrupo.Name = "BGrupo";
+            this.BGrupo.Size = new System.Drawing.Size(133, 23);
+            this.BGrupo.TabIndex = 12;
+            this.BGrupo.Text = "Grupo";
+            this.BGrupo.UseVisualStyleBackColor = true;
+            this.BGrupo.Click += new System.EventHandler(this.BGrupo_Click);
             // 
-            // textBox7
+            // Tdescr_Tipo
             // 
-            this.textBox7.Location = new System.Drawing.Point(197, 144);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(266, 20);
-            this.textBox7.TabIndex = 17;
+            this.Tdescr_Tipo.BackColor = System.Drawing.SystemColors.Info;
+            this.Tdescr_Tipo.Location = new System.Drawing.Point(197, 144);
+            this.Tdescr_Tipo.Name = "Tdescr_Tipo";
+            this.Tdescr_Tipo.ReadOnly = true;
+            this.Tdescr_Tipo.Size = new System.Drawing.Size(266, 20);
+            this.Tdescr_Tipo.TabIndex = 17;
             // 
-            // textBox8
+            // TTipo
             // 
-            this.textBox8.Location = new System.Drawing.Point(137, 144);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(58, 20);
-            this.textBox8.TabIndex = 16;
+            this.TTipo.Location = new System.Drawing.Point(137, 144);
+            this.TTipo.Name = "TTipo";
+            this.TTipo.Size = new System.Drawing.Size(58, 20);
+            this.TTipo.TabIndex = 16;
+            this.TTipo.Leave += new System.EventHandler(this.TTipo_Leave);
             // 
-            // button5
+            // BTipo
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(1, 142);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 23);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Tipo";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTipo.Location = new System.Drawing.Point(1, 142);
+            this.BTipo.Name = "BTipo";
+            this.BTipo.Size = new System.Drawing.Size(133, 23);
+            this.BTipo.TabIndex = 15;
+            this.BTipo.Text = "Tipo";
+            this.BTipo.UseVisualStyleBackColor = true;
+            this.BTipo.Click += new System.EventHandler(this.BTipo_Click);
             // 
-            // pictureBox1
+            // PB_Foto
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(469, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 152);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            this.PB_Foto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PB_Foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_Foto.Location = new System.Drawing.Point(469, 12);
+            this.PB_Foto.Name = "PB_Foto";
+            this.PB_Foto.Size = new System.Drawing.Size(131, 152);
+            this.PB_Foto.TabIndex = 18;
+            this.PB_Foto.TabStop = false;
+            this.PB_Foto.Click += new System.EventHandler(this.PB_Foto_Click);
             // 
-            // checkBox1
+            // CB_AplicaInv
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(332, 170);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(131, 21);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Aplica Inventario";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CB_AplicaInv.AutoSize = true;
+            this.CB_AplicaInv.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CB_AplicaInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_AplicaInv.Location = new System.Drawing.Point(332, 170);
+            this.CB_AplicaInv.Name = "CB_AplicaInv";
+            this.CB_AplicaInv.Size = new System.Drawing.Size(131, 21);
+            this.CB_AplicaInv.TabIndex = 19;
+            this.CB_AplicaInv.Text = "Aplica Inventario";
+            this.CB_AplicaInv.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // Articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 256);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.CB_AplicaInv);
+            this.Controls.Add(this.PB_Foto);
+            this.Controls.Add(this.Tdescr_Tipo);
+            this.Controls.Add(this.TTipo);
+            this.Controls.Add(this.BTipo);
+            this.Controls.Add(this.Tdescr_Grupo);
+            this.Controls.Add(this.TGrupo);
+            this.Controls.Add(this.BGrupo);
+            this.Controls.Add(this.CB_Estado);
+            this.Controls.Add(this.TDescr_Cat);
+            this.Controls.Add(this.Tcat);
+            this.Controls.Add(this.tdescr);
+            this.Controls.Add(this.tid);
+            this.Controls.Add(this.BSeguir);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BCat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Articulo";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Articulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Foto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,22 +291,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BCat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button BSeguir;
+        private System.Windows.Forms.TextBox tid;
+        private System.Windows.Forms.TextBox tdescr;
+        private System.Windows.Forms.TextBox Tcat;
+        private System.Windows.Forms.TextBox TDescr_Cat;
+        private System.Windows.Forms.ComboBox CB_Estado;
+        private System.Windows.Forms.TextBox Tdescr_Grupo;
+        private System.Windows.Forms.TextBox TGrupo;
+        private System.Windows.Forms.Button BGrupo;
+        private System.Windows.Forms.TextBox Tdescr_Tipo;
+        private System.Windows.Forms.TextBox TTipo;
+        private System.Windows.Forms.Button BTipo;
+        private System.Windows.Forms.PictureBox PB_Foto;
+        private System.Windows.Forms.CheckBox CB_AplicaInv;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

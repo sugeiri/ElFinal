@@ -161,7 +161,7 @@ CREATE TABLE TIPO_ARTICULO
 	id_t_articulo int not null primary key,
 	descr_t_articulo varchar(100) not null,
 	estado_t_articulo char(1) not null,
-	id_unidad_m char(5) not null  Constraint FK_UnidadM_TArt FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
+	id_unidad_t_articulo char(5) not null  Constraint FK_UnidadM_TArt FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
 )
 grant all on  TIPO_ARTICULO to public;
 
@@ -171,6 +171,7 @@ CREATE TABLE ARTICULO
 	descr_articulo varchar(500) not null,
 	estado_articulo char(1) not null,
 	id_cat_articulo int not null Constraint FK_cat_Articulo FOREIGN KEY REFERENCES CATEGORIA_ARTICULO(id_cat_articulo),
+	id_gart_articulo int not null Constraint FK_GArt_Articulo FOREIGN KEY REFERENCES GRUPO_ARTICULO(id_g_articulo),
 	id_tart_articulo int not null Constraint FK_TArt_Articulo FOREIGN KEY REFERENCES TIPO_ARTICULO(id_t_articulo),
 	aplica_inv_articulo char(1) not null,
 	foto_articulo		varbinary(MAX),
@@ -193,6 +194,7 @@ create table receta
 	descr_receta varchar(500) not null,
 	estado_receta char(1) not null,
 	id_tipo_receta int not null constraint FK_treceta FOREIGN KEY REFERENCES tipo_receta(id_t_receta),
+	foto_receta		varbinary(MAX)
 )
 grant all on  receta to public;
 
@@ -200,6 +202,7 @@ create table Formula_receta
 (
 	id_receta_fr   int not null constraint FK_receta_fr FOREIGN KEY REFERENCES receta(id_receta),
 	id_articulo_fr int not null constraint FK_Art_fr FOREIGN KEY REFERENCES articulo(id_articulo),
+	id_unidad_fr char(5) not null  Constraint FK_Unidad_fr FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
 	cant_art_fr	   decimal(6,2) not null,
 	no_sust_art_fr char(1) not null
 	primary key(id_receta_fr,id_articulo_fr)
@@ -248,6 +251,16 @@ create table Compra_Envio
 	
 )
 grant all on Compra_Envio to public;
+
+create table equivalencia
+(
+	id_unidad_1_equiv char(5) not null  Constraint FK_Unidad_1_eqv FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
+	cant_equiv_1  decimal(12,5) not null,
+	id_unidad_2_equiv char(5) not null  Constraint FK_Unidad_2_eqv FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
+	cant_equiv_2 decimal(12,5) not null
+	primary key(id_unidad_1_equiv,id_unidad_2_equiv)
+)
+grant all on equivalencia to public;
 ----ESTADOS COMPRA
 ----      	 A=PENDIENTE O ACTIVO, 
 ----		 F=FINALIZADO O ENTREGADO, 

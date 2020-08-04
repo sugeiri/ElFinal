@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoArticulo));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,11 +37,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tid = new System.Windows.Forms.TextBox();
+            this.tdescr = new System.Windows.Forms.TextBox();
+            this.Tunidad = new System.Windows.Forms.TextBox();
+            this.TDescr_unidad = new System.Windows.Forms.TextBox();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,6 +85,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Unidad Medida";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -102,6 +106,7 @@
             this.button2.Size = new System.Drawing.Size(46, 44);
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -112,53 +117,63 @@
             this.button3.Size = new System.Drawing.Size(46, 44);
             this.button3.TabIndex = 6;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
+            // tid
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.tid.Location = new System.Drawing.Point(137, 33);
+            this.tid.Name = "tid";
+            this.tid.Size = new System.Drawing.Size(100, 20);
+            this.tid.TabIndex = 7;
+            this.tid.TextChanged += new System.EventHandler(this.tid_TextChanged);
+            this.tid.Leave += new System.EventHandler(this.tid_Leave);
             // 
-            // textBox2
+            // tdescr
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(326, 20);
-            this.textBox2.TabIndex = 8;
+            this.tdescr.Location = new System.Drawing.Point(137, 65);
+            this.tdescr.Name = "tdescr";
+            this.tdescr.Size = new System.Drawing.Size(326, 20);
+            this.tdescr.TabIndex = 8;
             // 
-            // textBox3
+            // Tunidad
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(58, 20);
-            this.textBox3.TabIndex = 9;
+            this.Tunidad.Location = new System.Drawing.Point(137, 92);
+            this.Tunidad.Name = "Tunidad";
+            this.Tunidad.Size = new System.Drawing.Size(58, 20);
+            this.Tunidad.TabIndex = 9;
+            this.Tunidad.Leave += new System.EventHandler(this.Tunidad_Leave);
             // 
-            // textBox4
+            // TDescr_unidad
             // 
-            this.textBox4.Location = new System.Drawing.Point(197, 92);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(266, 20);
-            this.textBox4.TabIndex = 10;
+            this.TDescr_unidad.BackColor = System.Drawing.SystemColors.Info;
+            this.TDescr_unidad.Location = new System.Drawing.Point(197, 92);
+            this.TDescr_unidad.Name = "TDescr_unidad";
+            this.TDescr_unidad.ReadOnly = true;
+            this.TDescr_unidad.Size = new System.Drawing.Size(266, 20);
+            this.TDescr_unidad.TabIndex = 10;
             // 
-            // comboBox1
+            // cb_estado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(365, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(98, 21);
-            this.comboBox1.TabIndex = 11;
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Location = new System.Drawing.Point(365, 33);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(98, 21);
+            this.cb_estado.TabIndex = 11;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // TipoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 177);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cb_estado);
+            this.Controls.Add(this.TDescr_unidad);
+            this.Controls.Add(this.Tunidad);
+            this.Controls.Add(this.tdescr);
+            this.Controls.Add(this.tid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
@@ -167,6 +182,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TipoArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.TipoArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,10 +199,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tid;
+        private System.Windows.Forms.TextBox tdescr;
+        private System.Windows.Forms.TextBox Tunidad;
+        private System.Windows.Forms.TextBox TDescr_unidad;
+        private System.Windows.Forms.ComboBox cb_estado;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
