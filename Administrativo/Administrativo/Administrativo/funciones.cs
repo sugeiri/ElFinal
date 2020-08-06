@@ -338,6 +338,8 @@ namespace Administrativo
                 ii_Receta.tipo = DS.Tables[0].Rows[0][3].ToString();
                 if (DS.Tables[0].Rows[0][4].ToString() != "")
                     ii_Receta.foto = (byte[])DS.Tables[0].Rows[0][4];
+                ii_Receta.porcion = int.Parse(DS.Tables[0].Rows[0][5].ToString());
+                ii_Receta.duracion = decimal.Parse(DS.Tables[0].Rows[0][6].ToString());
                 return ii_Receta;
 
             }
@@ -561,7 +563,9 @@ namespace Administrativo
                                                       "@descripcion," +
                                                       "@estado," +
                                                       "@tipo," +
-                                                      "@foto)";
+                                                      "@foto," +
+                                                      "@porcion," +
+                                                      "@duracion)";
                 }
                 else
                 {
@@ -569,7 +573,9 @@ namespace Administrativo
                             "descr_receta =@descripcion," +
                             "estado_receta=@estado," +
                             "id_tipo_receta =@tipo," +
-                            "foto_receta =@foto" +
+                            "foto_receta =@foto," +
+                            "porcion_receta =@porcion," +
+                             "tiempo_receta =@duracion" +
                             " WHERE id_receta=@id";
                 }
                 cmd = new SqlCommand(sql, con);
@@ -581,7 +587,9 @@ namespace Administrativo
                 {
                     cmd.Parameters.Add("@foto", SqlDbType.VarBinary);
                 }
-                
+                cmd.Parameters.Add("@porcion", SqlDbType.Int, 8);
+                cmd.Parameters.Add("@duracion", SqlDbType.Decimal, 5);
+
                 cmd.Parameters["@id"].Value = ii_EReceta.id;
                 cmd.Parameters["@descripcion"].Value = ii_EReceta.descripcion;
                 cmd.Parameters["@estado"].Value = ii_EReceta.estado;
@@ -590,7 +598,9 @@ namespace Administrativo
                 {
                     cmd.Parameters["@foto"].Value = ImageData;
                 }
-                
+                cmd.Parameters["@porcion"].Value = ii_EReceta.porcion;
+                cmd.Parameters["@duracion"].Value = ii_EReceta.duracion;
+
                 con.Open();
                 int RowsAffected = cmd.ExecuteNonQuery();
 

@@ -41,6 +41,8 @@ namespace Administrativo
             public string estado = "";
             public string tipo = "";
             public byte[] foto = null;
+            public int porcion = 0;
+            public decimal duracion = 0;
         }
         public class EFormula
         {

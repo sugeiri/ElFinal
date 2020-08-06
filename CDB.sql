@@ -194,7 +194,9 @@ create table receta
 	descr_receta varchar(500) not null,
 	estado_receta char(1) not null,
 	id_tipo_receta int not null constraint FK_treceta FOREIGN KEY REFERENCES tipo_receta(id_t_receta),
-	foto_receta		varbinary(MAX)
+	foto_receta		varbinary(MAX),
+	porcion_receta int not null,
+	tiempo_receta	decimal(6,2) not null
 )
 grant all on  receta to public;
 

@@ -81,6 +81,8 @@ namespace Administrativo
                     Image img = Image.FromStream(ms);
                     PB_Foto.Image = img;
                 }
+                TPorcion.Text = aa_EReceta.porcion.ToString().Trim();
+                TDuracion.Text = aa_EReceta.duracion.ToString().Trim();
             }
             else
             {
@@ -131,6 +133,13 @@ namespace Administrativo
                 errorProvider1.SetError(TTipo, mensaje);
                 TTipo.Focus();
             }
+            if (string.IsNullOrWhiteSpace(TDuracion.Text.ToString().Trim()))
+            {
+                MessageBox.Show(mensaje);
+                errorProvider1.SetError(TDuracion, mensaje);
+                TDuracion.Focus();
+            }
+            
             if (aa_modo.ToUpper().Trim() == "A")
             {
                 if (cb_estado.SelectedIndex != 0)
@@ -145,6 +154,8 @@ namespace Administrativo
             aa_EReceta.descripcion = tdescr.Text;
             aa_EReceta.estado= cb_estado.SelectedItem.ToString().Trim().ToUpper().Substring(0, 1);
             aa_EReceta.tipo = TTipo.Text;
+            aa_EReceta.duracion = Convert.ToDecimal(TDuracion.Text.ToString());
+            aa_EReceta.porcion = int.Parse(TPorcion.Text.ToString());
             if (!funciones.Inserta_Receta(aa_modo,aa_EReceta,FileName, ref Error))
             {
                 MessageBox.Show(Error);
@@ -168,6 +179,8 @@ namespace Administrativo
             cb_estado.SelectedIndex = 0;
             TTipo.Text = "";
             TDescr_T.Text = "";
+            TPorcion.Text = "1";
+            TDuracion.Text = "";
         }
 
         private void Tunidad_Leave(object sender, EventArgs e)
@@ -190,7 +203,7 @@ namespace Administrativo
 
         private void receta_Load(object sender, EventArgs e)
         {
-
+            TPorcion.Text = "1";
             cb_estado.Items.Add("A");
             cb_estado.Items.Add("I");
             cb_estado.SelectedIndex = 0;
