@@ -24,11 +24,12 @@ create table Tipo_usuario
 	estado_t_usuario char(1) not null
 )
 grant all on  Tipo_usuario to public;
+
 create table USUARIO(
 	id_usuario varchar(20) not null primary key,
 	id_tercero_usuario int not null constraint fk_tercero_usuario foreign key references Tercero(id_Tercero),
 	id_Tipo_usuario int not null  constraint fk_tipo_usuario foreign key references Tipo_usuario(id_t_usuario),
-	clave_usuario varchar(max) not null,
+	clave_usuario varbinary(200) not null,
 	estado_usuario char(1) not null
 )
 grant all on  USUARIO to public;
