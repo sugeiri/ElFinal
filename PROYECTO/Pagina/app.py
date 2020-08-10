@@ -1,13 +1,14 @@
 from unicodedata import category
 
-from flask import Flask, request, make_response, redirect, render_template, flash, session, message_flashed, current_app
+from flask import Flask, request, make_response, redirect, render_template, flash, session, message_flashed, current_app,request,url_for
 import user_database
+from tkinter import messagebox
+
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 @app.route('/')
 def main_index():
-    # return render_template('/login.html')
-    #user_database.generate_key()
     return render_template('login.html')
 
 @app.route('/FlaskTutorial',  methods=['POST'])
@@ -23,7 +24,7 @@ def success():
        pass
 @app.route('/Login')
 def login():
-       return render_template('login.html')
+    return render_template('login.html')
 
 @app.route('/IniciarSesion',  methods=['POST'])
 def IniciarSesion():
@@ -37,7 +38,8 @@ def IniciarSesion():
            x=tipo+'|'+usuario
            return render_template('success.html', usuario=x)
         elif Error=="EE":
-           return render_template('success.html', usuario=Error+' '+tipo)
+            flash(tipo)
+            return render_template('login.html')
     else:
         pass
 
@@ -53,13 +55,7 @@ def Registro():
         sexo = request.form['sexosignup']
         tipo = request.form['tiposignup']
         if clave!=confirmacion:
-            #make_response(usuario=usuario,nombre=nombre,email=email,clave=clave,confirmacion=confirmacion,sexo=sexo,tipo=tipo,mens="LAS CLAVES NO COINCIDEN")
-            #flashes = session.get("_flashes", [])
-            #flashes.append((category, "LAS CLAVES NO COINCIDEN"))
-            #session["_flashes"] = flashes
-            #message_flashed.send(
-            #    current_app._get_current_object(), message="LAS CLAVES NO COINCIDEN", category=category
-            #)
+            flash('Las Claves no Coinciden')
             return render_template('login.html')
             pass
         else:
@@ -68,9 +64,9 @@ def Registro():
             tipo = str(resultado[3:])
             if Error != "EE":
                 x = tipo + '|' + usuario
-                #return render_template('login.html',usuario=usuario,nombre=nombre,email=email,clave=clave,confirmacion=confirmacion,sexo=sexo,tipo=tipo,mens=tipo)
                 return render_template('login.html')
             elif Error == "EE":
+                flash(tipo)
                 return render_template('success.html', usuario=Error + ' ' + tipo)
     else:
         pass

@@ -1,4 +1,5 @@
 #import pyodbc
+import tkinter
 import pymssql
 def Connect():
     #conn = pymssql.connect('Driver={SQL Server};'
@@ -13,50 +14,72 @@ def Ejecuta_Consulta(query):
     Cursor.execute(query)
     return Cursor
 def Valida_Usuario(usuario,clave):
-    query="select id_Tipo_usuario,clave_usuario,estado_usuario from USUARIO where id_usuario='"+usuario+"'"
-    Cursor = Connect().cursor()
+    conn = Connect()
+    query="select id_Tipo_usuario,estado_usuario from USUARIO where id_usuario='"+usuario+"'"
+    Cursor = conn.cursor()
+    Cursor_02 = conn.cursor()
     Cursor.execute(query)
-    for x in Cursor:
-        if(str(x[2]).upper()!='A'):
-            return "EE:Usuario Inactivo"
+    row = Cursor.fetchone()
+    estado=row[1]
+    tip = row[0]
+    if(estado[0].upper()!='A'):
+        return "EE:Usuario Inactivo"
+    else:
+        Cursor_02.execute("Exec ValidaPass '"+usuario+"','"+clave+"'")
+        row_02 = str(Cursor_02.fetchone()).split('|')
+        Resp = row_02[1].split(':')
+        tipo=Resp[0]
+        msj = Resp[1]
+        if(tipo=='EE'):
+            tkinter.messagebox.showinfo(title="AVISO", message=msj)
+            return "EE:Clave Incorrecta"
         else:
-            clave_d=Cursor.execute("Exec ValidaPass '"+usuario+"','"+clave+"'")
-            if(clave_d!=clave):
-                return "EE:Clave Incorrecta"
-            else:
-                return "00:"+str(x[0])
+            return "00:"+msj
     return "EE:No Existe el usuario"
 def Inserta_Usuario(usuario,nombre,email,clave,tipo,sexo):
-    #query='Exec IUsuario ''+str(usuario)+'',''+str(nombre)+'','+tipo+',''+str(clave)+'',''+str(sexo)+'',''+str(email)+'''
-    args=(usuario,nombre,tipo,clave,sexo,email)
     try:
-        #query='''
-        #Exec IUsuario @ii_usuario={{usuario}},
-        #@ii_nombre={{nombre}},@ii_id_Tipo_u={{tipo}},
-        #@ii_passw={{clave}},@ii_sexo={{sexo}},@ii_email={{email}}
-        #'''
-        #params = {
-        #    '@ii_usuario': str(usuario),
-        #    '@ii_nombre': str(nombre),
-        #    '@ii_id_Tipo_u': tipo,
-        #    '@ii_passw': str(clave),
-        #    '@ii_sexo': str(sexo),
-        #    '@ii_email': str(email),
-        #}
-        #sql="Exec IUsuario ?,?,?,?,?,? "
-        cliente='1'
-        sql="Exec IUsuario '"+usuario+"','"+nombre+"',"+tipo+",'"+clave+"','"+sexo+"','"+email+"'"
-        Cursor = Connect().cursor()
-        Cursor.execute(sql)
-        for x in Cursor:
-            ini=x[0:2]
-            msj=x[3:]
-            if ini=="EE":
-                Cursor.close()
+        conn=Connect()
+
+        sql = "Exec Valida_Correo '" + email + "'"
+        Cursor_01 = conn.cursor()
+        Cursor_01.execute(sql)
+        for x in Cursor_01:
+            ini = str(x)[2:4]
+            msj = str(x)[5:]
+            if ini == "EE":
+                Cursor_01.close()
+                conn.close()
                 return msj
-            else:
-                Cursor.close()
-                return "00:Usuario Creado"
+        conn.commit()
+
+        sql="Exec ITercero '"+nombre+"','"+sexo+"','"+email+"'"
+        Cursor_02 = conn.cursor()
+        Cursor_02.execute(sql)
+        row = str(Cursor_02.fetchone()).split('|')
+        conn.commit()
+        Resp=row[1].split(':')
+        msj = Resp[1]
+        if Resp[0].upper()=='EE':
+            Cursor_01.close()
+            conn.close()
+            return msj
+
+        codido_t=msj
+        sql="Exec IUsuario "+codido_t+",'"+usuario+"',"+tipo+",'"+clave+"'"
+        Cursor_03 = conn.cursor()
+        Cursor_03.execute(sql)
+        row_03 = str(Cursor_03.fetchone()).split('|')
+        conn.commit()
+        R = row_03[1].split(':')
+        msj = R[1]
+        if R[0].upper() == 'EE':
+            Cursor_03.close()
+            conn.close()
+            return msj
+        else:
+            Cursor_03.close()
+            conn.close()
+            return "00:Usuario Creado"
 
     except Exception as ex:
         return "EE:No se pudo crear Cuenta"+ex
