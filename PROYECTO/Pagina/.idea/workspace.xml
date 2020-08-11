@@ -2,11 +2,91 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/animate_index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Pagina.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Pagina.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/045393e2-6af1-4e7b-bad7-da5fce7d1c4e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/045393e2-6af1-4e7b-bad7-da5fce7d1c4e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/Flask-1.1.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/Flask-1.1.2.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/Jinja2-2.11.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/Jinja2-2.11.2.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/MarkupSafe-1.1.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/MarkupSafe-1.1.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/MarkupSafe-1.1.1.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/MarkupSafe-1.1.1.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/Naked-0.1.31.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/Naked-0.1.31.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/PyYAML-5.3.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/PyYAML-5.3.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/PyYAML-5.3.1.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/PyYAML-5.3.1.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/Werkzeug-1.0.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/Werkzeug-1.0.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/aes-1.0.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/aes-1.0.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/aes-1.0.0.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/aes-1.0.0.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/certifi-2020.6.20.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/certifi-2020.6.20.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi-1.14.1.dist-info/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi-1.14.1.dist-info/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi-1.14.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi-1.14.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi-1.14.1.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi-1.14.1.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/_cffi_errors.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/_cffi_errors.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/_cffi_include.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/_cffi_include.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/_embedding.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/_embedding.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/backend_ctypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/backend_ctypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/cffi_opcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/cffi_opcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/commontypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/commontypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/cparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/cparser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/ffiplatform.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/ffiplatform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/lock.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/lock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/parse_c_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/parse_c_type.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/pkgconfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/pkgconfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/recompiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/recompiler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/setuptools_ext.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/setuptools_ext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/vengine_cpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/vengine_cpy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/vengine_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/vengine_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cffi/verifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cffi/verifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/chardet-3.0.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/chardet-3.0.4.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/click-7.1.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/click-7.1.2.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/crypto-1.4.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/crypto-1.4.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-3.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-3.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/cryptography-3.0.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/cryptography-3.0.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/idna-2.10.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/idna-2.10.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/itsdangerous-1.1.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/itsdangerous-1.1.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pip-20.2.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pip-20.2.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pkg_resources/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pkg_resources/_vendor/pyparsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pycparser-2.20.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pycparser-2.20.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pymssql-2.1.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pymssql-2.1.4.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pymssql-2.1.4.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pymssql-2.1.4.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pyodbc-4.0.30.dist-info/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pyodbc-4.0.30.dist-info/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pyodbc-4.0.30.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pyodbc-4.0.30.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pyodbc-4.0.30.dist-info/WHEEL" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pyodbc-4.0.30.dist-info/WHEEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/requests-2.24.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/requests-2.24.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/setuptools-49.2.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/setuptools-49.2.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/setuptools/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/setuptools/_vendor/pyparsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/shellescape-3.8.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/shellescape-3.8.1.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/six-1.15.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/six-1.15.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/urllib3-1.25.10.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/urllib3-1.25.10.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/werkzeug/_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/werkzeug/_compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Activate.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Activate.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/activate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/activate.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/activate.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/deactivate.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/deactivate.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyvenv.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/pyvenv.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements" beforeDir="false" afterPath="$PROJECT_DIR$/requirements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/animate-custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fonts/BebasNeue-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fonts/BebasNeue-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fonts/Dharma Type Font License.txt" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fonts/Dharma Type Font License.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fonts/fontomas-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fonts/fontomas-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fonts/franchise-bold-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fonts/franchise-bold-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/ImageAttribution.txt" beforeDir="false" afterPath="$PROJECT_DIR$/templates/images/ImageAttribution.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login_old.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProcAlm.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProcAlm.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,19 +98,27 @@
       <list>
         <option value="Flask Main" />
         <option value="XHTML File" />
-        <option value="HTML File" />
         <option value="SCSS File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1frr9cHHA7aGMajPxBntppjenQs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,15 +127,20 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\static" />
+      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
+      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\static\css" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates\css" />
     </key>
   </component>
@@ -112,6 +205,10 @@
       <workItem from="1596986929440" duration="4891000" />
       <workItem from="1597010327806" duration="22190000" />
       <workItem from="1597067835693" duration="8747000" />
+      <workItem from="1597079815188" duration="992000" />
+      <workItem from="1597080842515" duration="2430000" />
+      <workItem from="1597086870664" duration="2000" />
+      <workItem from="1597150849963" duration="17605000" />
     </task>
     <servers />
   </component>
@@ -123,10 +220,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1596986993707" />
-    <state x="433" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596987033552">
+    <state x="433" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597166101950">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="433" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1596987033552" />
+    <state x="433" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1597166101950" />
     <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1597069691525">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -139,50 +236,70 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="354" y="116" key="#xdebugger.XInspectDialog/0.0.1366.728@0.0.1366.728" timestamp="1597033814561" />
-    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate" timestamp="1597070230511">
+    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate" timestamp="1597159205755">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1597070230511" />
-    <state width="1070" height="450" key="DebuggerActiveHint" timestamp="1597074733675">
+    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1597159205755" />
+    <state x="429" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597081100304">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597074733675" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597076682104">
+    <state x="429" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1597081100304" />
+    <state width="1070" height="450" key="DebuggerActiveHint" timestamp="1597170515718">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597076682104">
+    <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597170515718" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597076682104">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597076682104">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597076682104">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597076682104">
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597076682104">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597076682104">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597171917712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597076682104" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597171917712">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597171917712" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1597153701909">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597153701909" />
     <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597028923633">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597028923633" />
+    <state x="302" y="55" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1597153696537">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="302" y="55" key="com.intellij.javaee.MapExternalResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1597153696537" />
+    <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597154581005">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1597154581005" />
+    <state x="389" y="0" width="587" height="728" key="find.popup" timestamp="1597154779175">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="0" width="587" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597154779175" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596987823022">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -191,11 +308,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/user_database.py</url>
           <line>57</line>
@@ -211,6 +323,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597076634859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597171829098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
