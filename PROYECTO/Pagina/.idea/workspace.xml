@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../CDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CDB.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/animate-custom-login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recetas.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -150,7 +149,7 @@
       <workItem from="1597185786489" duration="17984000" />
       <workItem from="1597233995966" duration="455000" />
       <workItem from="1597234539682" duration="80000" />
-      <workItem from="1597239275173" duration="3484000" />
+      <workItem from="1597239275173" duration="4645000" />
     </task>
     <servers />
   </component>
@@ -162,6 +161,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="4" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1597234614683" />
+    <state x="391" y="99" key="#Servers" timestamp="1597243079466">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="391" y="99" key="#Servers/0.0.1366.728@0.0.1366.728" timestamp="1597243079466" />
     <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597239902059">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -194,22 +197,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597205377687" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1597242752854">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1597243925092">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597242752854" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1597242752853">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597243925092" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1597243925092">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597242752853" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1597242752853">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597243925092" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1597243925092">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597242752853" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1597242752854">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597243925092" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1597243925092">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597242752854" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597243925092" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597242451540">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -226,10 +229,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597242451540" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1597153701909">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1597243290781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597153701909" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597243290781" />
     <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597028923633">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -290,7 +293,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597242752842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597243925092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

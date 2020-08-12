@@ -10,7 +10,7 @@
         <link href="{{ url_for('static',filename='../favicon.ico') }}" rel="shortcut icon">
         <link href="{{ url_for('static',filename='css/login_2_css.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ url_for('static',filename='css/login_css.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ url_for('static',filename='css/animate-custom.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static',filename='css/animate-custom-login.css') }}" rel="stylesheet" type="text/css">
 
     </head>
     <body>
@@ -31,11 +31,11 @@
             </header>
             <section>
                 <div id="container_demo" >
-                    <a class="hiddenanchor" id="toregister"></a>
+                      <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
-                        <div id="login" class="animate form">
-                            <form  action="/IniciarSesion" autocomplete="on" method="post">
+                         <div id="login" class="animate form">
+                           <form  action="/IniciarSesion" autocomplete="on" method="post">
                                 <h1>Log in</h1>
                                 <p>
                                     <label for="username" class="uname" data-icon="u" > Nombre de Usuario </label>
