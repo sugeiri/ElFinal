@@ -23,6 +23,7 @@
     <link href="{{ url_for('static',filename='css/recetas.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 <header class="header">
     <div class="container-fluid">
         <div class="row">
@@ -37,15 +38,18 @@
                         <li><a href="/">INICIO</a></li>
                         <li><a href="#">Supermercados</a></li>
                         <li><a href="/shop">Comprar</a></li>
+                        {% if usuario != '' %}
                         <li><a href="#">CUENTA</a>
                             <ul class="dropdown">
                                 <li><a href="/shop-cart">Ver Carrito</a></li>
                                 <li><a href="/shop-cart">Seguimiento de Compras</a></li>
                                 <li><a href="/shop-cart">Historial de Compras</a></li>
                                 <li><a href="/shop-cart">Configuracion de Cuenta</a></li>
+                                <li><a href="/sign-out">Cerrar Sesion</a></li>
                             </ul>
                         </li>
-                        <li><a href="/blog">Recetas</a></li>
+                        {% endif %}
+                        <li><a href="/recetas">Recetas</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -62,7 +66,7 @@
                     </div>
                     <ul class="header__right__widget">
                         <li><span class="fa fa-search"></span></li>
-                        <li><a href="#"><span class="fa fa-shopping-cart"></span>
+                        <li><a href="/shop-cart"><span class="fa fa-shopping-cart"></span>
                             <div class="tip">{{ carrito }}</div>
                         </a></li>
                     </ul>
@@ -74,6 +78,7 @@
         </div>
     </div>
 </header>
+
 <br>
 <!-- Start Menu -->
 <div class="menu-box">

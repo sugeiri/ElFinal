@@ -18,6 +18,7 @@ def main_index():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant=user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
     return render_template('index.html',usuario=username,carrito=cant)
 @app.route('/shop')
 def shop():
@@ -26,19 +27,23 @@ def shop():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
+        cant=cant[0]
     return render_template('shop.html',categoria_Art=categoria_Art,usuario=username,carrito=cant,categoria=0)
 @app.route('/shop-cart')
 def shopcart():
     username = ''
     if 'username' in session.cookies:
         username = session.cookies.get('username')
-    return render_template('shop-cart.html',usuario=username)
+        cant = user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
+    return render_template('shop-cart.html',usuario=username,carrito=cant)
 
 @app.route('/Login')
 def login():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
         return render_template('index.html',usuario=username,carrito=cant)
     return render_template('login.html')
 
@@ -54,6 +59,7 @@ def IniciarSesion():
             session.auth = (usuario, clave)
             session.cookies={'username': usuario}
             cant = user_database.Consulta_TotalEnCarro(usuario)
+            cant=cant[0]
             return render_template('index.html', usuario=usuario,carrito=cant)
         elif Error == "EE":
             flash(tipo)
@@ -106,6 +112,7 @@ def categoria(id):
             grupo=cat
             break
     cant = user_database.Consulta_TotalEnCarro(username)
+    cant = cant[0]
     return render_template('shop.html',categoria=id,carrito=cant,usuario=username,categoria_Art=grupo)
 @app.route("/recetas")
 def receta():
@@ -114,6 +121,7 @@ def receta():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
     return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
 @app.route("/det_receta")
 def receta_det():
@@ -123,6 +131,7 @@ def receta_det():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
     return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
 
 if __name__ == '__main__':
