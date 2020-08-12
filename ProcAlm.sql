@@ -94,3 +94,106 @@ AS
 GO
 
 grant all on ValidaPass to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Grupo_xCat' AND type = 'P')
+   DROP PROCEDURE Busca_Grupo_xCat
+GO
+
+CREATE PROCEDURE Busca_Grupo_xCat
+   @ii_cat			int
+
+AS 
+		if @ii_cat>0
+			BEGIN
+				select distinct id_cat_articulo,id_gart_articulo,descr_g_articulo 
+					from ARTICULO INNER JOIN GRUPO_ARTICULO 
+						ON	id_gart_articulo=id_g_articulo
+					where id_cat_articulo=@ii_cat
+			END
+		else
+			BEGIN
+				select distinct id_cat_articulo,id_gart_articulo,descr_g_articulo 
+					from ARTICULO INNER JOIN GRUPO_ARTICULO 
+						ON	id_gart_articulo=id_g_articulo
+			END
+
+		
+GO
+
+grant all on Busca_Grupo_xCat to public
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Tipo_xGrupo' AND type = 'P')
+   DROP PROCEDURE Busca_Tipo_xGrupo
+GO
+
+CREATE PROCEDURE Busca_Tipo_xGrupo
+   @ii_grup			int
+
+AS 
+	if @ii_grup>0
+		BEGIN
+			select distinct id_gart_articulo,id_tart_articulo,descr_t_articulo
+			from ARTICULO INNER JOIN TIPO_ARTICULO 
+				ON	id_t_articulo=id_tart_articulo
+			where id_gart_articulo=@ii_grup
+		END
+	else
+		BEGIN
+			select distinct id_gart_articulo,id_tart_articulo,descr_t_articulo
+			from ARTICULO INNER JOIN TIPO_ARTICULO 
+				ON	id_t_articulo=id_tart_articulo
+		END
+
+		
+GO
+
+grant all on Busca_Tipo_xGrupo to public
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Receta_XTipo' AND type = 'P')
+   DROP PROCEDURE Busca_Receta_XTipo
+GO
+
+CREATE PROCEDURE Busca_Receta_XTipo
+   @ii_id			int
+
+AS 
+	if @ii_id>0
+		BEGIN
+			select id_receta,descr_receta,foto_receta,porcion_receta,tiempo_receta 
+					from receta  where  estado_receta='A' and id_tipo_receta =@ii_id
+		END
+	else
+		BEGIN
+			select id_receta,descr_receta,foto_receta,porcion_receta,tiempo_receta 
+					from receta where estado_receta='A' 
+		END
+
+		
+GO
+grant all on Busca_Receta_XTipo to public
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Formula_Receta' AND type = 'P')
+   DROP PROCEDURE Busca_Formula_Receta
+GO
+
+CREATE PROCEDURE Busca_Formula_Receta
+   @ii_id			int
+
+AS 
+	select id_articulo_fr,descr_articulo,id_unidad_fr,descr_unidad_m,cant_art_fr,no_sust_art_fr,
+		   id_cat_articulo,id_gart_articulo,id_tart_articulo,aplica_inv_articulo,
+		   foto_articulo 
+	from Formula_receta inner join ARTICULO  ON
+			id_articulo=id_articulo_fr INNER JOIN Unidad_Medida
+			on id_unidad_fr=id_unidad_m
+	where id_receta_fr=@ii_id
+	
+		
+GO
+grant all on Busca_Formula_Receta to public
+

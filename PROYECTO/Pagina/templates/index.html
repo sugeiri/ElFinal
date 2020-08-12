@@ -7,12 +7,12 @@
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>The Dream Team</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+          rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Css Styles -->
     <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -26,24 +26,73 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a href="/index"><img src="{{ url_for('static',filename='img/logo.png') }}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="/">INICIO</a></li>
+                        <li><a href="#">Supermercados</a></li>
+                        <li><a href="/shop">Comprar</a></li>
+                        <li><a href="#">CUENTA</a>
+                            <ul class="dropdown">
+                                <li><a href="/shop-cart">Ver Carrito</a></li>
+                                <li><a href="/shop-cart">Seguimiento de Compras</a></li>
+                                <li><a href="/shop-cart">Historial de Compras</a></li>
+                                <li><a href="/shop-cart">Configuracion de Cuenta</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/recetas">Recetas</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__right">
+                    <div class="header__right__auth">
+                        {% if usuario != '' %}
+                            <a href="/Login">{{ usuario }}</a>
+                        {% else %}
+                            <a href="/Login">Login/Register</a>
+                        {% endif %}
+
+                    </div>
+                    <ul class="header__right__widget">
+                        <li><span class="fa fa-search"></span></li>
+                        <li><a href="#"><span class="fa fa-shopping-cart"></span>
+                            <div class="tip">{{ carrito }}</div>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
     </div>
+</header>
 
-    {% include 'menu.html' %}
-
-    <!-- Categories Section Begin -->
-    <section class="categories">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="categories__item categories__large__item set-bg"
-                    data-setbg="{{ url_for('static',filename='img/categories/category-1.jpg') }}">
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="categories__item categories__large__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/categories/category-1.jpg') }}">
                     <div class="categories__text">
                         <h1>Women’s fashion</h1>
                         <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
-                        edolore magna aliquapendisse ultrices gravida.</p>
+                            edolore magna aliquapendisse ultrices gravida.</p>
                         <a href="#">Shop now</a>
                     </div>
                 </div>
@@ -51,7 +100,8 @@
             <div class="col-lg-6">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="{{ url_for('static',filename='img/categories/category-2.jpg') }}">
+                        <div class="categories__item set-bg"
+                             data-setbg="{{ url_for('static',filename='img/categories/category-2.jpg') }}">
                             <div class="categories__text">
                                 <h4>Men’s fashion</h4>
                                 <p>358 items</p>
@@ -60,7 +110,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="{{ url_for('static',filename='img/categories/category-3.jpg') }}">
+                        <div class="categories__item set-bg"
+                             data-setbg="{{ url_for('static',filename='img/categories/category-3.jpg') }}">
                             <div class="categories__text">
                                 <h4>Kid’s fashion</h4>
                                 <p>273 items</p>
@@ -69,7 +120,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="{{ url_for('static',filename='img/categories/category-4.jpg') }}">
+                        <div class="categories__item set-bg"
+                             data-setbg="{{ url_for('static',filename='img/categories/category-4.jpg') }}">
                             <div class="categories__text">
                                 <h4>Cosmetics</h4>
                                 <p>159 items</p>
@@ -78,7 +130,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="{{ url_for('static',filename='img/categories/category-5.jpg') }}">
+                        <div class="categories__item set-bg"
+                             data-setbg="{{ url_for('static',filename='img/categories/category-5.jpg') }}">
                             <div class="categories__text">
                                 <h4>Accessories</h4>
                                 <p>792 items</p>
@@ -116,10 +169,12 @@
         <div class="row property__gallery">
             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-1.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-1.jpg') }}">
                         <div class="label new">New</div>
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-1.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-1.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -139,9 +194,11 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-2.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-2.jpg') }}">
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-2.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-2.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -161,10 +218,12 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-3.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-3.jpg') }}">
                         <div class="label stockout">out of stock</div>
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-3.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-3.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -184,9 +243,11 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-4.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-4.jpg') }}">
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-4.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-4.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -206,9 +267,11 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-5.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-5.jpg') }}">
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-5.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-5.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -228,10 +291,12 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
                 <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-6.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-6.jpg') }}">
                         <div class="label sale">Sale</div>
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-6.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-6.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -251,9 +316,11 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-7.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-7.jpg') }}">
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-7.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-7.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -273,10 +340,12 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
                 <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="{{ url_for('static',filename='img/product/product-8.jpg') }}">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="{{ url_for('static',filename='img/product/product-8.jpg') }}">
                         <div class="label">Sale</div>
                         <ul class="product__hover">
-                            <li><a href="{{ url_for('static',filename='img/product/product-8.jpg') }}" class="image-popup"><span class="fa fa-eye"></span></a></li>
+                            <li><a href="{{ url_for('static',filename='img/product/product-8.jpg') }}"
+                                   class="image-popup"><span class="fa fa-eye"></span></a></li>
                             <li><a href="#"><span class="fa fa-heart-o"></span></a></li>
                             <li><a href="#"><span class="fa fa-cart-plus"></span></a></li>
                         </ul>
@@ -418,7 +487,7 @@
                             <img src="{{ url_for('static',filename='img/trend/bs-2.jpg') }}" alt="">
                         </div>
                         <div class="trend__item__text">
-                            <h6>Zip-pockets pebbled tote <br />briefcase</h6>
+                            <h6>Zip-pockets pebbled tote <br/>briefcase</h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -591,7 +660,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{{ url_for('static',filename='img/instagram/insta-1.jpg') }}">
+                <div class="instagram__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/instagram/insta-1.jpg') }}">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -599,7 +669,8 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{{ url_for('static',filename='img/instagram/insta-2.jpg') }}">
+                <div class="instagram__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/instagram/insta-2.jpg') }}">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -607,7 +678,8 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{{ url_for('static',filename='img/instagram/insta-3.jpg') }}">
+                <div class="instagram__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/instagram/insta-3.jpg') }}">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -615,7 +687,8 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{{ url_for('static',filename='img/instagram/insta-4.jpg') }}">
+                <div class="instagram__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/instagram/insta-4.jpg') }}">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -623,7 +696,8 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{{ url_for('static',filename='img/instagram/insta-5.jpg') }}">
+                <div class="instagram__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/instagram/insta-5.jpg') }}">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -631,7 +705,8 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                <div class="instagram__item set-bg" data-setbg="{{ url_for('static',filename='img/instagram/insta-6.jpg') }}">
+                <div class="instagram__item set-bg"
+                     data-setbg="{{ url_for('static',filename='img/instagram/insta-6.jpg') }}">
                     <div class="instagram__text">
                         <i class="fa fa-instagram"></i>
                         <a href="#">@ ashion_shop</a>
@@ -659,7 +734,13 @@
 <!-- Search End -->
 
 <!-- Js Plugins -->
+<script>
+    function getPaging(str) {
+        alert("Entro" + str);
 
+        //$("#loading-content").load("dataSearch.php?"+str, hideLoader);
+    }
+</script>
 <script src="{{ url_for('static',filename='js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/jquery.magnific-popup.min.js') }}"></script>

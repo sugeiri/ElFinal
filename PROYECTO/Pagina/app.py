@@ -8,55 +8,24 @@ session = requests.Session()
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
+categoria_Art=user_database.Consulta_CategoriaArt()
+TipoReceta=user_database.Consulta_TipoReceta()
 @app.route('/')
 def main_index():
     username=''
+    cant=0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
-    return render_template('index.html',usuario=username)
-@app.route('/index')
-def index():
-    username=''
-    if 'username' in session.cookies:
-        username = session.cookies.get('username')
-    return render_template('index.html',usuario=username)
+        cant=user_database.Consulta_TotalEnCarro(username)
+    return render_template('index.html',usuario=username,carrito=cant)
 @app.route('/shop')
 def shop():
     username = ''
+    cant=0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
-    return render_template('shop.html',usuario=username)
-@app.route('/blog')
-def blog():
-    username = ''
-    if 'username' in session.cookies:
-        username = session.cookies.get('username')
-    return render_template('blog.html',usuario=username)
-@app.route('/blog-details')
-def blogdetails():
-    username = ''
-    if 'username' in session.cookies:
-        username = session.cookies.get('username')
-    return render_template('blog-details.html',usuario=username)
-@app.route('/checkout')
-def checkout():
-    username = ''
-    if 'username' in session.cookies:
-        username = session.cookies.get('username')
-    return render_template('checkout.html',usuario=username)
-@app.route('/contact')
-def contact():
-    username = ''
-    if 'username' in session.cookies:
-        username = session.cookies.get('username')
-    return render_template('contact.html',usuario=username)
-@app.route('/product-details')
-def productdetails():
-    username = ''
-    if 'username' in session.cookies:
-        username = session.cookies.get('username')
-    return render_template('product-details.html',usuario=username)
+        cant = user_database.Consulta_TotalEnCarro(username)
+    return render_template('shop.html',categoria_Art=categoria_Art,usuario=username,carrito=cant,categoria=0)
 @app.route('/shop-cart')
 def shopcart():
     username = ''
@@ -64,22 +33,12 @@ def shopcart():
         username = session.cookies.get('username')
     return render_template('shop-cart.html',usuario=username)
 
-@app.route('/FlaskTutorial',  methods=['POST'])
-def success():
-   if request.method == 'POST':
-       email = request.form['id']
-       query='select descr_articulo from articulo where id_articulo='+email
-       consulta=user_database.Ejecuta_Consulta(query)
-       for x in consulta:
-           descr=x
-       return render_template('success.html', id=descr)
-   else:
-       pass
 @app.route('/Login')
 def login():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
-        return render_template('index.html', usuario=username)
+        cant = user_database.Consulta_TotalEnCarro(username)
+        return render_template('index.html',usuario=username,carrito=cant)
     return render_template('login.html')
 
 @app.route('/IniciarSesion',  methods=['POST'])
@@ -93,7 +52,8 @@ def IniciarSesion():
         if Error != "EE":
             session.auth = (usuario, clave)
             session.cookies={'username': usuario}
-            return render_template('index.html', usuario=usuario)
+            cant = user_database.Consulta_TotalEnCarro(usuario)
+            return render_template('index.html', usuario=usuario,carrito=cant)
         elif Error == "EE":
             flash(tipo)
             return redirect(request.url)
@@ -101,8 +61,9 @@ def IniciarSesion():
         pass
 @app.route("/sign-out")
 def sign_out():
+    cant=0
     session.cookies.pop("username", None)
-    return render_template('index.html', usuario='')
+    return render_template('index.html', usuario='',carrito=0)
 
 @app.route('/Registro', methods=['POST'])
 def Registro():
@@ -124,15 +85,43 @@ def Registro():
             tipo = str(resultado[3:])
             if Error != "EE":
                 x = tipo + '|' + usuario
-                return render_template('login.html')
+                return render_template('login.html',carrito=0)
             elif Error == "EE":
                 flash(tipo)
                 return render_template('success.html', usuario=Error + ' ' + tipo)
     else:
         pass
-@app.route("/menu")
-def menu():
-    return render_template('menu.html')
+
+@app.route("/categoria/<id>")
+def categoria(id):
+    clave = id
+    username = ''
+    cant = 0
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+        cant = user_database.Consulta_TotalEnCarro(username)
+    for cat in categoria_Art:
+        if str(cat.get('cat')) == id:
+            grupo=cat
+            break
+    cant = user_database.Consulta_TotalEnCarro(username)
+    return render_template('shop.html',categoria=id,carrito=cant,usuario=username,categoria_Art=grupo)
+@app.route("/recetas")
+def receta():
+    username = ''
+    cant = 0
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+        cant = user_database.Consulta_TotalEnCarro(username)
+    return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
+@app.route("/det_receta")
+def receta_det():
+    username = ''
+    cant = 0
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+        cant = user_database.Consulta_TotalEnCarro(username)
+    return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
 
 if __name__ == '__main__':
     app.debug = True

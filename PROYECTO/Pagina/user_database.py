@@ -2,17 +2,9 @@
 import tkinter
 import pymssql
 def Connect():
-    #conn = pymssql.connect('Driver={SQL Server};'
-    #                      'Server=QJM_SUGEIRI;'
-    #                      'Database=db_ElFinal;'
-    #                      'Trusted_Connection=yes;')
     conn = pymssql.connect(server='QJM_SUGEIRI', user='sa',
                            password='971223', database='db_ElFinal')
     return conn
-def Ejecuta_Consulta(query):
-    Cursor=Connect().cursor()
-    Cursor.execute(query)
-    return Cursor
 def Valida_Usuario(usuario,clave):
     conn = Connect()
     query="select id_Tipo_usuario,estado_usuario from USUARIO where id_usuario='"+usuario+"'"
@@ -21,7 +13,6 @@ def Valida_Usuario(usuario,clave):
     Cursor.execute(query)
     row = Cursor.fetchone()
     estado=row[1]
-    tip = row[0]
     if(estado[0].upper()!='A'):
         return "EE:Usuario Inactivo"
     else:
@@ -83,3 +74,94 @@ def Inserta_Usuario(usuario,nombre,email,clave,tipo,sexo):
 
     except Exception as ex:
         return "EE:No se pudo crear Cuenta"+ex
+def Consulta_CategoriaArt():
+    query = "select id_cat_articulo,descr_cat_articulo from categoria_articulo where estado_cat_articulo='A'"
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista=[]
+    dict={}
+    for x in Cursor:
+        grupos=Consulta_Grupos_deCat(x[0])
+        dict={'cat':x[0],'descr':x[1],'grupos':grupos}
+        lista.append(dict)
+    return lista
+
+def Consulta_TotalEnCarro(usuario):
+    query = "select count(*) from Carro_compra where id_usuario_cc='"+usuario+"'"
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    cant=Cursor.fetchone()
+    return cant
+def Consulta_Grupos_deCat(cat):
+    query = " exec Busca_Grupo_xCat "+str(cat)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista_1=[]
+    dict_1={}
+    for x in Cursor:
+        tipos=Consulta_Tipos_deGrupo(x[1])
+        dict_1={'cat':x[0],'grupo':x[1],'descr':x[2],'tipos':tipos}
+        lista_1.append(dict_1)
+    return lista_1
+
+def Consulta_Tipos_deGrupo(grupo):
+    query = " exec Busca_Tipo_xGrupo "+str(grupo)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista=[]
+    dict={}
+    for x in Cursor:
+        dict={'grupo':x[0],'tipo':x[1],'descr':x[2]}
+        lista.append(dict)
+    return lista
+
+def Consulta_TipoReceta():
+    query = " select id_t_receta,UPPER(descr_t_receta) from tipo_receta where estado_t_receta='A' "
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista=[]
+    dict={}
+    for x in Cursor:
+        receta=Consulta_Receta(x[0])
+        dict={'tipo':x[0],'descr':x[1],'recetas':receta}
+        lista.append(dict)
+    return lista
+def Consulta_Receta(tipo):
+    query = " exec Busca_Receta_XTipo "+str(tipo)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista=[]
+    dict={}
+    for x in Cursor:
+        formula=Consulta_Formula_Receta(x[0])
+        dict={'receta':x[0],'descr':x[1],'foto':x[2],'porcion':x[3],'tiempo':x[4],'formula':formula}
+
+        lista.append(dict)
+    return lista
+def Consulta_Formula_Receta(receta):
+    query = " exec Busca_Formula_Receta "+str(receta)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista=[]
+    dict={}
+    for x in Cursor:
+        dict={'articulo':x[0],
+              'descr':x[1],
+              'unidad':x[2],
+              'descr_unidad':x[3],
+              'cant':x[4],
+              'sustituir':x[5],
+              'categoria':x[6],
+              'grupo': x[7],
+              'tipo': x[8],
+              'inv': x[9],
+              'foto': x[10]}
+        lista.append(dict)
+    return lista
