@@ -2,8 +2,8 @@
 import tkinter
 import pymssql
 def Connect():
-    conn = pymssql.connect(server='QJM_SUGEIRI', user='sa',
-                           password='971223', database='db_ElFinal')
+    conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
+                           password='12345', database='db_ElFinal')
     return conn
 def Valida_Usuario(usuario,clave):
     conn = Connect()
@@ -85,6 +85,7 @@ def Consulta_CategoriaArt():
         grupos=Consulta_Grupos_deCat(x[0])
         dict={'cat':x[0],'descr':x[1],'grupos':grupos}
         lista.append(dict)
+    conn.close()
     return lista
 
 def Consulta_TotalEnCarro(usuario):
@@ -93,6 +94,7 @@ def Consulta_TotalEnCarro(usuario):
     Cursor = conn.cursor()
     Cursor.execute(query)
     cant=Cursor.fetchone()
+    conn.close()
     return cant
 def Consulta_Grupos_deCat(cat):
     query = " exec Busca_Grupo_xCat "+str(cat)
@@ -105,6 +107,7 @@ def Consulta_Grupos_deCat(cat):
         tipos=Consulta_Tipos_deGrupo(x[1])
         dict_1={'cat':x[0],'grupo':x[1],'descr':x[2],'tipos':tipos}
         lista_1.append(dict_1)
+    conn.close()
     return lista_1
 
 def Consulta_Tipos_deGrupo(grupo):
@@ -117,6 +120,7 @@ def Consulta_Tipos_deGrupo(grupo):
     for x in Cursor:
         dict={'grupo':x[0],'tipo':x[1],'descr':x[2]}
         lista.append(dict)
+    conn.close()
     return lista
 
 def Consulta_TipoReceta():
@@ -130,6 +134,7 @@ def Consulta_TipoReceta():
         receta=Consulta_Receta(x[0])
         dict={'tipo':x[0],'descr':x[1],'recetas':receta}
         lista.append(dict)
+    conn.close()
     return lista
 def Consulta_Receta(tipo):
     query = " exec Busca_Receta_XTipo "+str(tipo)
@@ -143,6 +148,7 @@ def Consulta_Receta(tipo):
         dict={'receta':x[0],'descr':x[1],'foto':x[2],'porcion':x[3],'tiempo':x[4],'formula':formula}
 
         lista.append(dict)
+    conn.close()
     return lista
 def Consulta_Formula_Receta(receta):
     query = " exec Busca_Formula_Receta "+str(receta)
@@ -164,4 +170,5 @@ def Consulta_Formula_Receta(receta):
               'inv': x[9],
               'foto': x[10]}
         lista.append(dict)
+    conn.close()
     return lista

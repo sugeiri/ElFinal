@@ -189,6 +189,7 @@ create table tipo_receta
 	estado_t_receta char(1) not null
 )
 grant all on  tipo_receta to public;
+
 create table receta
 (
 	id_receta int not null primary key,

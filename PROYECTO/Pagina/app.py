@@ -9,7 +9,8 @@ session = requests.Session()
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 categoria_Art=user_database.Consulta_CategoriaArt()
-TipoReceta=user_database.Consulta_TipoReceta()
+TipoReceta = user_database.Consulta_TipoReceta()
+
 @app.route('/')
 def main_index():
     username=''
@@ -116,6 +117,7 @@ def receta():
     return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
 @app.route("/det_receta")
 def receta_det():
+
     username = ''
     cant = 0
     if 'username' in session.cookies:
