@@ -1,8 +1,11 @@
 #import pyodbc
 import tkinter
 import pymssql
+import base64
 def Connect():
-    conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
+    #conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
+    #                       password='12345', database='db_ElFinal')
+    conn = pymssql.connect(server='QJM_SUGEIRI', user='ElFinal',
                            password='12345', database='db_ElFinal')
     return conn
 def Valida_Usuario(usuario,clave):
@@ -145,8 +148,9 @@ def Consulta_Receta(tipo):
     dict={}
     for x in Cursor:
         formula=Consulta_Formula_Receta(x[0])
-        dict={'receta':x[0],'descr':x[1],'foto':x[2],'porcion':x[3],'tiempo':x[4],'formula':formula}
-
+        foto_varbinary=x[2]
+        encoded = base64.b64encode(foto_varbinary)
+        dict={'tipo':tipo,'receta':x[0],'descr':x[1],'foto':encoded,'porcion':x[3],'tiempo':x[4],'formula':formula}
         lista.append(dict)
     conn.close()
     return lista

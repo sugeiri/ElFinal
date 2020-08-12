@@ -123,17 +123,25 @@ def receta():
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
     return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
-@app.route("/det_receta")
-def receta_det():
-
+@app.route("/det_receta/<id>")
+def receta_det(id):
     username = ''
     cant = 0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
-    return render_template('recetas.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
+    return render_template('recetas_det.html',carrito=cant,usuario=username,tipo_receta=TipoReceta,receta=id)
 
+@app.route('/prueba')
+def prueba():
+    username = ''
+    cant = 0
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+        cant = user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
+    return render_template('prueba.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
 if __name__ == '__main__':
     app.debug = True
     app.run()

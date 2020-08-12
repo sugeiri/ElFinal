@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/css/prueba.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/prueba.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login_2_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login_2_css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/ImageAttribution.txt" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/ImageAttribution.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/about-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/about-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/all-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/all-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/footer-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/footer-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/qt-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/qt-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/slider-image1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/slider-image1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/slider-image2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/slider-image2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/slider-image3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/slider-image3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recetas.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recetas_det.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas_det.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop-cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,14 +81,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\static" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\static\css" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Flask server.Pagina">
@@ -152,7 +161,8 @@
       <workItem from="1597185786489" duration="17984000" />
       <workItem from="1597233995966" duration="455000" />
       <workItem from="1597234539682" duration="80000" />
-      <workItem from="1597239275173" duration="6909000" />
+      <workItem from="1597239275173" duration="10962000" />
+      <workItem from="1597269252372" duration="4109000" />
     </task>
     <servers />
   </component>
@@ -200,46 +210,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597247092117" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597247358748">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1597274595882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597247358748">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597274595882" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1597274595882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597247358748">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597274595882" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1597274595882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597247358748">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597274595882" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1597274595882">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597247358748">
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597274595882" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597274595874">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597247358748">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597274595874" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597274595874">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597247358748">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597274595874" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597274595874">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597247358748">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597274595874" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597274595874">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597247358748" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597274595874" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1597243290781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597243290781" />
-    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597028923633">
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597274043853">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597028923633" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597274043853" />
     <state x="302" y="55" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1597153696537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -270,29 +280,42 @@
           <line>89</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/recetas.html</url>
+          <line>104</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/prueba.html</url>
+          <line>93</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.FlaskServer">
-        <watch expression="query" language="Python" />
-        <watch expression="for Grupo in Cat" />
-        <watch expression="&lt;li&gt;&lt;a href=&quot;#&quot; &gt;{{ Tipo['descr']}}&lt;/a&gt;&lt;/li&gt;" />
-        <watch expression="Tipo" />
-        <watch expression="Grupo" />
-        <watch expression="Cat['grupos']" />
-        <watch expression="Grupo['descr']" />
-        <watch expression="'collapse'+{{ Cat['cat'] }}" />
-        <watch expression="{{ '#cat_'+Cat['descr'] }}" language="HTML" />
-        <watch expression="[{'#cat_' + Cat.get('descr')}]" language="HTML" />
-        <watch expression="Cat.get('descr')" />
-        <watch expression="{{ tipo.get('descr') }}" />
-        <watch expression="{{ tipo['descr'] }}" />
-        <watch expression="{{ carrito }}" />
+        <watch expression="tipo_receta['recetas']" />
+        <watch expression="tipo_receta" />
+        <watch expression="recetas['foto']" />
+        <watch expression="BinaryToBase64({{ recetas['foto'] }})" />
+        <watch expression="&quot;&lt;img class='img-fluid' alt='Image' src='data:image/png;base64,&quot;+BinaryToBase64({{ recetas['foto'] }})+&quot;'/&gt;&quot;" />
+        <watch expression="&lt;img src = '@imgsrc'  class=&quot;img-fluid&quot; alt=&quot;Image&quot;/&gt;" />
+        <watch expression="{{ recetas['foto'] }}" />
+        <watch expression="{{ recetas['receta'] }}" />
+        <watch expression="{{ recetas['descr'] }}" />
+        <watch expression="{{ recetas.get('foto') }}" />
+        <watch expression="{{ receta['foto'] }}" />
+        <watch expression="receta['foto']" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597247265643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597273994571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
