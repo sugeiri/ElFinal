@@ -175,7 +175,7 @@ CREATE TABLE ARTICULO
 	id_gart_articulo int not null Constraint FK_GArt_Articulo FOREIGN KEY REFERENCES GRUPO_ARTICULO(id_g_articulo),
 	id_tart_articulo int not null Constraint FK_TArt_Articulo FOREIGN KEY REFERENCES TIPO_ARTICULO(id_t_articulo),
 	aplica_inv_articulo char(1) not null,
-	foto_articulo		varbinary(MAX),
+	foto_articulo		varchar(MAX),
 	creado_p_articulo varchar(20) not null,
 	fecha_c_articulo datetime not null,
 	mod_p_articulo varchar(20) not null,
@@ -196,7 +196,7 @@ create table receta
 	descr_receta varchar(500) not null,
 	estado_receta char(1) not null,
 	id_tipo_receta int not null constraint FK_treceta FOREIGN KEY REFERENCES tipo_receta(id_t_receta),
-	foto_receta		varbinary(MAX),
+	foto_receta		varchar(MAX),
 	porcion_receta int not null,
 	tiempo_receta	decimal(6,2) not null
 )

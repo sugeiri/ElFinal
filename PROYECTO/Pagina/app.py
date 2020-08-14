@@ -127,11 +127,18 @@ def receta():
 def receta_det(id):
     username = ''
     cant = 0
+    Lreceta=[]
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
-    return render_template('recetas_det.html',carrito=cant,usuario=username,tipo_receta=TipoReceta,receta=id)
+    for tipo in TipoReceta:
+        for receta in tipo['recetas']:
+            if str(receta['receta'])==str(id):
+                Lreceta=receta
+                break
+
+    return render_template('recetas_det.html',carrito=cant,usuario=username,receta=Lreceta)
 
 @app.route('/prueba')
 def prueba():

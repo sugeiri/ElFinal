@@ -18,7 +18,8 @@ namespace Administrativo
         string Id = "";
         Clases.EReceta aa_EReceta = new Clases.EReceta();
         string FileName = "";
-        public receta(string ii_modo,string ii_id)
+        string ii_foto = "";
+        public receta(string ii_modo, string ii_id)
         {
             InitializeComponent();
             aa_modo = ii_modo;
@@ -62,7 +63,6 @@ namespace Administrativo
         void Llena_Datos()
         {
             aa_EReceta = funciones.Lee_Receta(tid.Text.ToString().Trim());
-            Byte[] ImageByte;
 
             if (aa_EReceta != null)
             {
@@ -74,13 +74,14 @@ namespace Administrativo
                 else
                     cb_estado.SelectedIndex = 1;
                 PB_Foto.SizeMode = PictureBoxSizeMode.Zoom;
-                if (aa_EReceta.foto!=null)
+                if (aa_EReceta.foto != "")
                 {
-                    byte[] image = aa_EReceta.foto;
-                    MemoryStream ms = new MemoryStream(image);
-                    Image img = Image.FromStream(ms);
-                    PB_Foto.Image = img;
+                    //byte[] image = aa_EReceta.foto;
+                    //MemoryStream ms = new MemoryStream(image);
+                    //Image img = Image.FromStream(ms);
+                    PB_Foto.Image = funciones.Base64ToImage(aa_EReceta.foto);
                 }
+                ii_foto = aa_EReceta.foto;
                 TPorcion.Text = aa_EReceta.porcion.ToString().Trim();
                 TDuracion.Text = aa_EReceta.duracion.ToString().Trim();
             }
@@ -139,7 +140,7 @@ namespace Administrativo
                 errorProvider1.SetError(TDuracion, mensaje);
                 TDuracion.Focus();
             }
-            
+
             if (aa_modo.ToUpper().Trim() == "A")
             {
                 if (cb_estado.SelectedIndex != 0)
@@ -152,11 +153,13 @@ namespace Administrativo
             aa_EReceta = new Clases.EReceta();
             aa_EReceta.id = tid.Text;
             aa_EReceta.descripcion = tdescr.Text;
-            aa_EReceta.estado= cb_estado.SelectedItem.ToString().Trim().ToUpper().Substring(0, 1);
+            aa_EReceta.estado = cb_estado.SelectedItem.ToString().Trim().ToUpper().Substring(0, 1);
             aa_EReceta.tipo = TTipo.Text;
             aa_EReceta.duracion = Convert.ToDecimal(TDuracion.Text.ToString());
             aa_EReceta.porcion = int.Parse(TPorcion.Text.ToString());
-            if (!funciones.Inserta_Receta(aa_modo,aa_EReceta,FileName, ref Error))
+            if (aa_modo.ToString().Trim().ToUpper() != "A")
+                aa_EReceta.foto = ii_foto;
+            if (!funciones.Inserta_Receta(aa_modo, aa_EReceta, FileName, ref Error))
             {
                 MessageBox.Show(Error);
                 return;
@@ -185,10 +188,10 @@ namespace Administrativo
 
         private void Tunidad_Leave(object sender, EventArgs e)
         {
-            if(TTipo.Text.ToString().Trim()!="")
+            if (TTipo.Text.ToString().Trim() != "")
             {
                 string descr = funciones.Lee_Descr_TipoReceta(TTipo.Text.ToString().Trim());
-                if(descr.ToString().Trim() == "")
+                if (descr.ToString().Trim() == "")
                 {
                     MessageBox.Show("No se encontro este dato en la base de datos");
                 }
@@ -207,7 +210,7 @@ namespace Administrativo
             cb_estado.Items.Add("A");
             cb_estado.Items.Add("I");
             cb_estado.SelectedIndex = 0;
-            if (aa_modo.ToString().ToUpper()=="M")
+            if (aa_modo.ToString().ToUpper() == "M")
             {
                 tid.ReadOnly = true;
                 tid.Text = Id;

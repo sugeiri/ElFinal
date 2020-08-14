@@ -3144,6 +3144,12 @@ ol {
 	width: 100%;
 }
 
+table{
+	border-collapse:collapse;
+}
+td,th{padding:5px 15px;text-align:left;}
+table,th,td{border:1px solid #000;}
+
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
 @media only screen and (min-width: 1600px) and (max-width: 1900px) {

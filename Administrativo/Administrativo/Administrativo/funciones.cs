@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,10 @@ namespace Administrativo
         {
             nombre_db = "db_ElFinal";
             Instancia_db = Environment.MachineName.ToString().Trim();
-            ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=" + Instancia_db + ";database=" + nombre_db + "";
+            // ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=" + Instancia_db + ";database=" + nombre_db + "";
+            ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=173.249.57.62;database=" + nombre_db + "";
 
+           
             SqlConnection conexion = new SqlConnection(ConnectionString);
             try
             {
@@ -301,7 +304,7 @@ namespace Administrativo
                 ii_articulo.id_tart_articulo = DS.Tables[0].Rows[0][5].ToString();
                 ii_articulo.aplica_inv_articulo = DS.Tables[0].Rows[0][6].ToString();
                 if (DS.Tables[0].Rows[0][7].ToString() != "")
-                    ii_articulo.foto_articulo = (byte[])DS.Tables[0].Rows[0][7];
+                    ii_articulo.foto_articulo = DS.Tables[0].Rows[0][7].ToString();
 
                 return ii_articulo;
 
@@ -337,7 +340,7 @@ namespace Administrativo
                 ii_Receta.estado = DS.Tables[0].Rows[0][2].ToString();
                 ii_Receta.tipo = DS.Tables[0].Rows[0][3].ToString();
                 if (DS.Tables[0].Rows[0][4].ToString() != "")
-                    ii_Receta.foto = (byte[])DS.Tables[0].Rows[0][4];
+                    ii_Receta.foto = DS.Tables[0].Rows[0][4].ToString();
                 ii_Receta.porcion = int.Parse(DS.Tables[0].Rows[0][5].ToString());
                 ii_Receta.duracion = decimal.Parse(DS.Tables[0].Rows[0][6].ToString());
                 return ii_Receta;
@@ -436,21 +439,14 @@ namespace Administrativo
             Error = "";
             SqlConnection con = OpenC(ref Error);
             SqlCommand cmd;
-            FileStream fs;
-            BinaryReader br;
-            string FileName = "";
-            byte[] ImageData = null;
+            string base64data = "";
             try
             {
 
                 if (ii_FileName.Length > 0)
                 {
-                    FileName = ii_FileName;
-                    fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-                    br = new BinaryReader(fs);
-                    ImageData = br.ReadBytes((int)fs.Length);
-                    br.Close();
-                    fs.Close();
+                    base64data = ImageToBase64(ii_FileName);
+                    ii_EArticulo.foto_articulo = base64data;
                 }
 
 
@@ -478,7 +474,7 @@ namespace Administrativo
                             "id_cat_articulo=@cat," +
                             "id_gart_articulo=@grup," +
                             "id_tart_articulo=@tipo," +
-                            "aplica_inv_articulo='@aplica," +
+                            "aplica_inv_articulo=@aplica," +
                             "foto_articulo=@foto," +
                             "mod_p_articulo=@usuario," +
                             "fecha_m_articulo =@fecha" +
@@ -492,10 +488,7 @@ namespace Administrativo
                 cmd.Parameters.Add("@grup", SqlDbType.Int, 8);
                 cmd.Parameters.Add("@tipo", SqlDbType.Int, 8);
                 cmd.Parameters.Add("@aplica", SqlDbType.Char, 1);
-                if (ii_FileName.Length > 0 || ii_Modo.ToUpper() == "A")
-                {
-                    cmd.Parameters.Add("@foto", SqlDbType.VarBinary);
-                }
+                cmd.Parameters.Add("@foto", SqlDbType.VarChar);
                 cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 20);
                 cmd.Parameters.Add("@fecha", SqlDbType.DateTime, 4);
 
@@ -506,10 +499,7 @@ namespace Administrativo
                 cmd.Parameters["@grup"].Value = ii_EArticulo.id_gart_articulo;
                 cmd.Parameters["@tipo"].Value = ii_EArticulo.id_tart_articulo;
                 cmd.Parameters["@aplica"].Value = ii_EArticulo.aplica_inv_articulo;
-                if (ii_FileName.Length > 0 || ii_Modo.ToUpper() == "A")
-                {
-                    cmd.Parameters["@foto"].Value = ImageData;
-                }
+                cmd.Parameters["@foto"].Value = ii_EArticulo.foto_articulo;
                 cmd.Parameters["@usuario"].Value = Clases.aa_usuario;
                 cmd.Parameters["@fecha"].Value = DateTime.Now;
 
@@ -540,19 +530,16 @@ namespace Administrativo
             SqlCommand cmd;
             FileStream fs;
             BinaryReader br;
-            string FileName = "";
             byte[] ImageData = null;
+            string base64data = "";
             try
             {
 
                 if (ii_FileName.Length > 0)
                 {
-                    FileName = ii_FileName;
-                    fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-                    br = new BinaryReader(fs);
-                    ImageData = br.ReadBytes((int)fs.Length);
-                    br.Close();
-                    fs.Close();
+
+                    base64data = ImageToBase64(ii_FileName);
+                    ii_EReceta.foto = base64data;
                 }
 
 
@@ -575,7 +562,7 @@ namespace Administrativo
                             "id_tipo_receta =@tipo," +
                             "foto_receta =@foto," +
                             "porcion_receta =@porcion," +
-                             "tiempo_receta =@duracion" +
+                            "tiempo_receta =@duracion" +
                             " WHERE id_receta=@id";
                 }
                 cmd = new SqlCommand(sql, con);
@@ -583,10 +570,7 @@ namespace Administrativo
                 cmd.Parameters.Add("@descripcion", SqlDbType.VarChar, 500);
                 cmd.Parameters.Add("@estado", SqlDbType.Char, 1);
                 cmd.Parameters.Add("@tipo", SqlDbType.Int, 8);
-                if (ii_FileName.Length > 0 || ii_Modo.ToUpper() == "A")
-                {
-                    cmd.Parameters.Add("@foto", SqlDbType.VarBinary);
-                }
+                cmd.Parameters.Add("@foto", SqlDbType.VarChar);
                 cmd.Parameters.Add("@porcion", SqlDbType.Int, 8);
                 cmd.Parameters.Add("@duracion", SqlDbType.Decimal, 5);
 
@@ -594,10 +578,8 @@ namespace Administrativo
                 cmd.Parameters["@descripcion"].Value = ii_EReceta.descripcion;
                 cmd.Parameters["@estado"].Value = ii_EReceta.estado;
                 cmd.Parameters["@tipo"].Value = ii_EReceta.tipo;
-                if (ii_FileName.Length > 0 || ii_Modo.ToUpper() == "A")
-                {
-                    cmd.Parameters["@foto"].Value = ImageData;
-                }
+                cmd.Parameters["@foto"].Value = ii_EReceta.foto;
+
                 cmd.Parameters["@porcion"].Value = ii_EReceta.porcion;
                 cmd.Parameters["@duracion"].Value = ii_EReceta.duracion;
 
@@ -634,26 +616,26 @@ namespace Administrativo
             return "";
 
         }
-        public static decimal Calcula_Equivalencia(string unidad_antes,string cant_antes,string unidad_nueva)
+        public static decimal Calcula_Equivalencia(string unidad_antes, string cant_antes, string unidad_nueva)
         {
             DataSet DS = new DataSet();
             string Error = "";
             string sql = "  select * from equivalencia where " +
-                "                               id_unidad_1_equiv = '"+unidad_antes+"' and " +
-                                              " id_unidad_2_equiv = '"+ unidad_nueva + "'";
+                "                               id_unidad_1_equiv = '" + unidad_antes + "' and " +
+                                              " id_unidad_2_equiv = '" + unidad_nueva + "'";
             DS = funciones.EjecutaSQL(sql, ref Error);
             if (DS.Tables[0].Rows.Count > 0)
             {
-                decimal cant_1= Convert.ToDecimal(cant_antes);
+                decimal cant_1 = Convert.ToDecimal(cant_antes);
                 decimal cant_2 = (decimal)DS.Tables[0].Rows[0]["cant_equiv_2"];
-                return (cant_1 *cant_2)/ (decimal)DS.Tables[0].Rows[0]["cant_equiv_1"];
+                return (cant_1 * cant_2) / (decimal)DS.Tables[0].Rows[0]["cant_equiv_1"];
 
             }
             else
             {
                 sql = "  select * from equivalencia where " +
                 "                               id_unidad_1_equiv = '" + unidad_nueva + "' and " +
-                                              " id_unidad_2_equiv = '" + unidad_antes+ "'";
+                                              " id_unidad_2_equiv = '" + unidad_antes + "'";
                 DS = new DataSet();
                 DS = funciones.EjecutaSQL(sql, ref Error);
                 if (DS.Tables[0].Rows.Count > 0)
@@ -666,6 +648,33 @@ namespace Administrativo
             }
             return 0;
 
+        }
+
+        public static string ImageToBase64(string ruta)
+        {
+
+            Image image = Image.FromFile(ruta);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // Convert Image to byte[]
+                image.Save(ms, image.RawFormat);
+                byte[] imageBytes = ms.ToArray();
+
+                // Convert byte[] to Base64 String
+                string base64String = Convert.ToBase64String(imageBytes);
+                return base64String;
+            }
+        }
+        public static Image Base64ToImage(string base64String)
+        {
+            // Convert base 64 string to byte[]
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            // Convert byte[] to Image
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            {
+                Image image = Image.FromStream(ms, true);
+                return image;
+            }
         }
 
     }

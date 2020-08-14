@@ -17,6 +17,7 @@ namespace Administrativo
         string aa_Id = "";
         string aa_modo = "";
         string FileName = "";
+        string ii_foto = "";
         public Articulo(string ii_modo, string ii_articulo)
         {
             InitializeComponent();
@@ -172,13 +173,12 @@ namespace Administrativo
                     CB_AplicaInv.Checked = true;
 
                 PB_Foto.SizeMode = PictureBoxSizeMode.Zoom;
-                if (aa_Articulo.foto_articulo!=null)
+                if (aa_Articulo.foto_articulo!="")
                 {
-                    byte[] image = aa_Articulo.foto_articulo;
-                    MemoryStream ms = new MemoryStream(image);
-                    Image img = Image.FromStream(ms);
-                    PB_Foto.Image = img;
+                   
+                    PB_Foto.Image = funciones.Base64ToImage(aa_Articulo.foto_articulo);
                 }
+                ii_foto = aa_Articulo.foto_articulo;
 
 
             }
@@ -200,6 +200,7 @@ namespace Administrativo
                 aa_Articulo.aplica_inv_articulo = "X";
             else
                 aa_Articulo.aplica_inv_articulo = "";
+            aa_Articulo.foto_articulo = ii_foto;
 
         }
         private void BSeguir_Click(object sender, EventArgs e)

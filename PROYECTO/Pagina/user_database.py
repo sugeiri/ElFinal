@@ -1,12 +1,18 @@
 #import pyodbc
+import io
 import tkinter
+
+import numpy as np
 import pymssql
 import base64
+from PIL import Image
+from io import BytesIO
+import cv2
 def Connect():
-    #conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
-    #                       password='12345', database='db_ElFinal')
-    conn = pymssql.connect(server='QJM_SUGEIRI', user='ElFinal',
+    conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
                            password='12345', database='db_ElFinal')
+    # conn = pymssql.connect(server='QJM_SUGEIRI', user='ElFinal',
+    #                        password='12345', database='db_ElFinal')
     return conn
 def Valida_Usuario(usuario,clave):
     conn = Connect()
@@ -135,7 +141,7 @@ def Consulta_TipoReceta():
     dict={}
     for x in Cursor:
         receta=Consulta_Receta(x[0])
-        dict={'tipo':x[0],'descr':x[1],'recetas':receta}
+        dict={'tipo':str(x[0]),'descr':x[1],'recetas':receta}
         lista.append(dict)
     conn.close()
     return lista
@@ -149,11 +155,16 @@ def Consulta_Receta(tipo):
     for x in Cursor:
         formula=Consulta_Formula_Receta(x[0])
         foto_varbinary=x[2]
-        encoded = base64.b64encode(foto_varbinary)
-        dict={'tipo':tipo,'receta':x[0],'descr':x[1],'foto':encoded,'porcion':x[3],'tiempo':x[4],'formula':formula}
+        #image = Base64_To_Image(foto_varbinary,x[1]+'.png')
+        dict={'tipo':str(tipo),'receta':x[0],'descr':x[1],'foto':x[2],'porcion':x[3],'tiempo':x[4],'formula':formula}
         lista.append(dict)
     conn.close()
     return lista
+def Base64_To_Image(dato,filename):
+    #image = base64.b64decode(str(dato))
+    im = Image.open(BytesIO(base64.b64decode(dato)))
+    #img = Image.open(io.BytesIO(image))
+    return im
 def Consulta_Formula_Receta(receta):
     query = " exec Busca_Formula_Receta "+str(receta)
     conn = Connect()
@@ -162,17 +173,21 @@ def Consulta_Formula_Receta(receta):
     lista=[]
     dict={}
     for x in Cursor:
+        sust=False
+        if str(x[5]).upper() =='X':
+            sust=True
         dict={'articulo':x[0],
               'descr':x[1],
               'unidad':x[2],
               'descr_unidad':x[3],
               'cant':x[4],
-              'sustituir':x[5],
+              'sustituir':sust,
               'categoria':x[6],
               'grupo': x[7],
               'tipo': x[8],
-              'inv': x[9],
-              'foto': x[10]}
+              'descr_tipo': x[9],
+              'inv': x[10],
+              'foto': x[11]}
         lista.append(dict)
     conn.close()
     return lista

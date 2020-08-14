@@ -186,11 +186,12 @@ CREATE PROCEDURE Busca_Formula_Receta
 
 AS 
 	select id_articulo_fr,descr_articulo,id_unidad_fr,descr_unidad_m,cant_art_fr,no_sust_art_fr,
-		   id_cat_articulo,id_gart_articulo,id_tart_articulo,aplica_inv_articulo,
+		   id_cat_articulo,id_gart_articulo,id_tart_articulo,descr_t_articulo,aplica_inv_articulo,
 		   foto_articulo 
 	from Formula_receta inner join ARTICULO  ON
 			id_articulo=id_articulo_fr INNER JOIN Unidad_Medida
-			on id_unidad_fr=id_unidad_m
+			on id_unidad_fr=id_unidad_m INNER JOIN TIPO_ARTICULO
+			ON id_tart_articulo=id_t_articulo
 	where id_receta_fr=@ii_id
 	
 		

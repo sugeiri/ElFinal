@@ -32,7 +32,7 @@ namespace Administrativo
             public string id_gart_articulo = "";
             public string id_tart_articulo = "";
             public string aplica_inv_articulo = "";
-            public byte[] foto_articulo = null;
+            public string foto_articulo = "";
         }
         public class EReceta
         {
@@ -40,7 +40,7 @@ namespace Administrativo
             public string descripcion = "";
             public string estado = "";
             public string tipo = "";
-            public byte[] foto = null;
+            public string foto = "";
             public int porcion = 0;
             public decimal duracion = 0;
         }
