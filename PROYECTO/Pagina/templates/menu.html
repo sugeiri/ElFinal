@@ -38,7 +38,13 @@
                         <ul>
                             <li ><a href="/">INICIO</a></li>
                             <li><a href="#">Supermercados</a></li>
-                            <li><a href="/shop">Comprar</a></li>
+                            <li><a href="/shop">Comprar</a>
+                            <ul class="dropdown">
+                                {% for cat in Categoria %}
+                                    <li><a href="/shop/<{{ cat['cat'] }}>">{{ cat['descr'] }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </li>
                             <li><a href="#">CUENTA</a>
                                 <ul class="dropdown">
                                     <li><a href="/shop-cart">Ver Carrito</a></li>

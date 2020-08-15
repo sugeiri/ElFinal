@@ -121,10 +121,20 @@ namespace Administrativo
         {
             int i = Fila_Actual();
             Id = DG_DATOS.Rows[i].Cells[0].Value.ToString().Trim();
-            Clases.ETipo ii_Tipo = funciones.Lee_Tipo(Id, aa_tabla);
-            Pant_Gen form = new Pant_Gen("m", aa_tabla, "MODIFICA "+aa_titulo, ii_Tipo);
-            if (form.ShowDialog() == DialogResult.OK)
-                Lee_Datos();
+            if (aa_tabla.ToString().Trim().ToUpper() == "GRUPO_ARTICULO")
+            {
+                Grupo_art form = new Grupo_art("m", Id);
+                if (form.ShowDialog() == DialogResult.OK)
+                    Lee_Datos();
+            }
+            else
+            {
+                Clases.ETipo ii_Tipo = funciones.Lee_Tipo(Id, aa_tabla);
+                Pant_Gen form = new Pant_Gen("m", aa_tabla, "MODIFICA " + aa_titulo, ii_Tipo);
+                if (form.ShowDialog() == DialogResult.OK)
+                    Lee_Datos();
+            }
+           
 
         }
         private void DG_DATOS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

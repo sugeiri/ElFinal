@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/Equivalentes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Administrativo.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Administrativo.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/C_Pant_Gen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/C_Pant_Gen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Clases.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Clases.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Menu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/funciones.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/funciones.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/receta.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/receta.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CONVERSIONES.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CONVERSIONES.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/prueba.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/prueba.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/prueba.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/prueba.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recetas.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/recetas_det.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas_det.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop-cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ProcAlm.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProcAlm.sql" afterDir="false" />
     </list>
@@ -32,8 +37,8 @@
         <option value="SCSS File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -165,7 +170,11 @@
       <workItem from="1597269252372" duration="4109000" />
       <workItem from="1597327315748" duration="10996000" />
       <workItem from="1597366522073" duration="4923000" />
-      <workItem from="1597406414198" duration="3005000" />
+      <workItem from="1597406414198" duration="12178000" />
+      <workItem from="1597434967332" duration="2760000" />
+      <workItem from="1597440794933" duration="9598000" />
+      <workItem from="1597495066092" duration="10523000" />
+      <workItem from="1597509599141" duration="9787000" />
     </task>
     <servers />
   </component>
@@ -201,58 +210,58 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="354" y="116" key="#xdebugger.XInspectDialog/0.0.1366.728@0.0.1366.728" timestamp="1597033814561" />
-    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate" timestamp="1597335110174">
+    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate" timestamp="1597498307378">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1597335110174" />
+    <state x="438" y="66" width="815" height="595" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1597498307378" />
     <state x="429" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597081100304">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="429" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1597081100304" />
-    <state width="1070" height="450" key="DebuggerActiveHint" timestamp="1597346017419">
+    <state width="1070" height="450" key="DebuggerActiveHint" timestamp="1597516948635">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597346017419" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1597409989442">
+    <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597516948635" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597520833865">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597409989442" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1597409989442">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597520833865">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597409989442" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1597409989442">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597520833865">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597409989442" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1597409989442">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597520833865">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597409989442" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597406731423">
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597520833866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597406731423" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597406731423">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597520833866" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597520833866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597406731423" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597406731423">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597520833866" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597520833865">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597406731423" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597406731423">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597520833866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597406731423" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597520833866" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1597243290781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597243290781" />
-    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597274043853">
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1597504119964">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597274043853" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1597504119964" />
     <state x="302" y="55" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1597153696537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -261,10 +270,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1597154581005" />
-    <state x="389" y="0" width="587" height="728" key="find.popup" timestamp="1597154779175">
+    <state x="389" y="0" width="587" height="728" key="find.popup" timestamp="1597498996176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="0" width="587" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597154779175" />
+    <state x="389" y="0" width="587" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1597498996176" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597327912226">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -275,18 +284,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>109</line>
-          <option name="timeStamp" value="41" />
+          <line>126</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_database.py</url>
+          <line>361</line>
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>89</line>
-          <option name="timeStamp" value="43" />
+          <line>276</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>193</line>
+          <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="jinja2-line">
           <url>file://$PROJECT_DIR$/templates/recetas.html</url>
-          <line>92</line>
+          <line>99</line>
           <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/menu.html</url>
+          <line>42</line>
+          <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/js/jquery.countdown.min.js</url>
@@ -297,14 +321,14 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.FlaskServer">
-        <watch expression="x[5]" />
-        <watch expression="not x[5]" />
-        <watch expression="formula['sustituir']" />
+        <watch expression="Articulos" />
+        <watch expression="articulo['foto']" />
+        <watch expression="articulo['articulo']" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597409931001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597520768685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

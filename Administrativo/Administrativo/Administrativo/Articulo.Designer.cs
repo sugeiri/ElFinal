@@ -51,6 +51,9 @@
             this.PB_Foto = new System.Windows.Forms.PictureBox();
             this.CB_AplicaInv = new System.Windows.Forms.CheckBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TContenido = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TDescrUnidad = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Foto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -240,7 +243,7 @@
             this.CB_AplicaInv.AutoSize = true;
             this.CB_AplicaInv.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CB_AplicaInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_AplicaInv.Location = new System.Drawing.Point(332, 170);
+            this.CB_AplicaInv.Location = new System.Drawing.Point(469, 170);
             this.CB_AplicaInv.Name = "CB_AplicaInv";
             this.CB_AplicaInv.Size = new System.Drawing.Size(131, 21);
             this.CB_AplicaInv.TabIndex = 19;
@@ -251,11 +254,40 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // TContenido
+            // 
+            this.TContenido.Location = new System.Drawing.Point(137, 171);
+            this.TContenido.Name = "TContenido";
+            this.TContenido.Size = new System.Drawing.Size(58, 20);
+            this.TContenido.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(38, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 20);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Contenido:";
+            // 
+            // TDescrUnidad
+            // 
+            this.TDescrUnidad.BackColor = System.Drawing.SystemColors.Info;
+            this.TDescrUnidad.Location = new System.Drawing.Point(197, 171);
+            this.TDescrUnidad.Name = "TDescrUnidad";
+            this.TDescrUnidad.ReadOnly = true;
+            this.TDescrUnidad.Size = new System.Drawing.Size(266, 20);
+            this.TDescrUnidad.TabIndex = 22;
+            // 
             // Articulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 256);
+            this.Controls.Add(this.TDescrUnidad);
+            this.Controls.Add(this.TContenido);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.CB_AplicaInv);
             this.Controls.Add(this.PB_Foto);
             this.Controls.Add(this.Tdescr_Tipo);
@@ -309,5 +341,8 @@
         private System.Windows.Forms.PictureBox PB_Foto;
         private System.Windows.Forms.CheckBox CB_AplicaInv;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox TDescrUnidad;
+        private System.Windows.Forms.TextBox TContenido;
+        private System.Windows.Forms.Label label5;
     }
 }

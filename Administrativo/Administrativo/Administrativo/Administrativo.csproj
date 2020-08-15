@@ -92,6 +92,12 @@
     <Compile Include="Formula.Designer.cs">
       <DependentUpon>Formula.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grupo_art.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grupo_art.Designer.cs">
+      <DependentUpon>Grupo_art.cs</DependentUpon>
+    </Compile>
     <Compile Include="receta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formula.resx">
       <DependentUpon>Formula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grupo_art.resx">
+      <DependentUpon>Grupo_art.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="receta.resx">
       <DependentUpon>receta.cs</DependentUpon>

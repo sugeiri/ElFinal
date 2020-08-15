@@ -198,3 +198,204 @@ AS
 GO
 grant all on Busca_Formula_Receta to public
 
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'ICarrito' AND type = 'P')
+   DROP PROCEDURE ICarrito
+GO
+
+CREATE PROCEDURE ICarrito
+   @ii_usuario		varchar(20),
+   @ii_receta		int,
+   @ii_articulo		int,
+   @ii_cant			decimal(12,2),
+   @ii_valor		decimal(12,2)
+
+AS 
+	BEGIN TRY
+		BEGIN TRANSACTION
+		 	Declare @cant_or decimal(12,2) =(select isnull(max(cant_cc),0) as Cod from Carro_compra where id_usuario_cc=@ii_usuario and id_articulo_cc=@ii_articulo);
+			declare @sum decimal(12,2)
+			DECLARE @CArt int
+			select @CArt=cant_f001 from Busca_Cant_art(@ii_receta,@ii_articulo,@ii_cant)
+			set @sum=@cant_or+@CArt
+			Declare @Importe decimal(12,2) =@sum*@ii_valor 
+			if @cant_or<=0 
+			BEGIN
+				INSERT INTO Carro_compra values(@ii_usuario,@ii_articulo,(select @sum),@ii_valor,(select @Importe))
+			END
+			ELSE
+			BEGIN
+			UPDATE Carro_compra SET cant_cc=@sum,monto_cc=@Importe where id_usuario_cc=@ii_usuario and  id_articulo_cc=@ii_articulo
+			END
+			Select '|00:Insertado|'
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		Select 'EE:ERROR AL INSERTAR DATOS'
+		ROLLBACK TRANSACTION;
+	END CATCH
+
+	
+GO
+
+grant all on ICarrito to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Consulta_Carro' AND type = 'P')
+   DROP PROCEDURE Consulta_Carro
+GO
+
+CREATE PROCEDURE Consulta_Carro
+   @ii_usuario		varchar(20)
+
+AS 
+	select id_usuario_cc,id_articulo_cc,descr_articulo,foto_articulo,cant_cc,valor_cc,monto_cc 
+	from Carro_compra inner join ARTICULO 
+	on id_articulo=id_articulo_cc
+	where id_usuario_cc=@ii_usuario
+	
+		
+GO
+grant all on Consulta_Carro to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'UCarrito' AND type = 'P')
+   DROP PROCEDURE UCarrito
+GO
+
+CREATE PROCEDURE UCarrito
+   @ii_usuario		varchar(20),
+   @ii_articulo		int,
+   @ii_cant			decimal(12,2),
+   @ii_valor		decimal(12,2)
+
+AS 
+	BEGIN TRY
+		BEGIN TRANSACTION
+			if @ii_cant>0 
+				BEGIN
+					UPDATE Carro_compra SET cant_cc=@ii_cant, 
+											valor_cc=@ii_valor,
+											monto_cc=(@ii_cant*@ii_valor)
+					WHERE  id_usuario_cc=@ii_usuario and
+						   id_articulo_cc=@ii_articulo
+				END
+			ELSE
+				BEGIN
+					delete Carro_compra WHERE id_usuario_cc=@ii_usuario and id_articulo_cc=@ii_articulo
+				END
+			Select '|00:Modificado|'
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		Select 'EE:ERROR AL MODIFICAR DATOS'
+		ROLLBACK TRANSACTION;
+	END CATCH
+
+	
+GO
+
+grant all on UCarrito to public
+
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Articulo_XCat' AND type = 'P')
+   DROP PROCEDURE Busca_Articulo_XCat
+GO
+
+CREATE PROCEDURE Busca_Articulo_XCat
+   @ii_id			int
+
+AS 
+	if @ii_id>0
+		BEGIN
+			select distinct id_articulo,descr_articulo,id_cat_articulo,
+					id_gart_articulo,id_tart_articulo,aplica_inv_articulo,foto_articulo
+			from ARTICULO 
+			where id_cat_articulo=@ii_id and estado_articulo='A'
+		END
+	else
+		BEGIN
+			select distinct id_articulo,descr_articulo,id_cat_articulo,
+					id_gart_articulo,id_tart_articulo,aplica_inv_articulo,foto_articulo
+			from ARTICULO 
+			where estado_articulo='A' 
+		END
+
+		
+GO
+grant all on Busca_Articulo_XCat to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'IArt_Carrito' AND type = 'P')
+   DROP PROCEDURE IArt_Carrito
+GO
+
+CREATE PROCEDURE IArt_Carrito
+   @ii_usuario		varchar(20),
+   @ii_articulo		int,
+   @ii_cant			decimal(12,2),
+   @ii_valor		decimal(12,2)
+
+AS 
+	BEGIN TRY
+		BEGIN TRANSACTION
+		 	Declare @cant_or decimal(12,2) =(select isnull(max(cant_cc),0) as Cod from Carro_compra where id_usuario_cc=@ii_usuario and id_articulo_cc=@ii_articulo);
+			declare @sum decimal(12,2)
+			set @sum=@cant_or+@ii_cant
+			Declare @Importe decimal(12,2) =@sum*@ii_valor 
+			if @cant_or<=0 
+			BEGIN
+				INSERT INTO Carro_compra values(@ii_usuario,@ii_articulo,(select @sum),@ii_valor,(select @Importe))
+			END
+			ELSE
+			BEGIN
+			UPDATE Carro_compra SET cant_cc=@sum,monto_cc=@Importe where id_usuario_cc=@ii_usuario and  id_articulo_cc=@ii_articulo
+			END
+			Select '|00:Insertado|'
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		Select 'EE:ERROR AL INSERTAR DATOS'
+		ROLLBACK TRANSACTION;
+	END CATCH
+
+	
+GO
+
+grant all on IArt_Carrito to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Articulo_Equivalente' AND type = 'P')
+   DROP PROCEDURE Busca_Articulo_Equivalente
+GO
+
+CREATE PROCEDURE Busca_Articulo_Equivalente
+   @ii_id			int
+
+AS 
+	declare @cat int
+	declare @grupo int
+	declare @tipo int
+
+	select @cat=id_cat_articulo,
+		   @grupo=id_gart_articulo,
+		   @tipo=id_tart_articulo
+	from ARTICULO  
+	where id_articulo=@ii_id
+
+	select * from ARTICULO
+		where id_cat_articulo=@cat and
+			  id_gart_articulo=@grupo and
+			  id_tart_articulo = @tipo
+	
+	
+		
+GO
+grant all on Busca_Articulo_Equivalente to public

@@ -37,7 +37,7 @@ namespace Administrativo
 
         private void crearToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Pant_Gen CP = new Pant_Gen("a", "grupo_ARticulo", "GRUPO ARTICULO");
+            Grupo_art CP = new Grupo_art("a", "");
             CP.ShowDialog();
         }
 

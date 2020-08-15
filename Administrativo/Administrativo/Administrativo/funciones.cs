@@ -20,8 +20,8 @@ namespace Administrativo
         {
             nombre_db = "db_ElFinal";
             Instancia_db = Environment.MachineName.ToString().Trim();
-            // ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=" + Instancia_db + ";database=" + nombre_db + "";
-            ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=173.249.57.62;database=" + nombre_db + "";
+             ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=" + Instancia_db + ";database=" + nombre_db + "";
+            //ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=173.249.57.62;database=" + nombre_db + "";
 
            
             SqlConnection conexion = new SqlConnection(ConnectionString);
@@ -305,7 +305,7 @@ namespace Administrativo
                 ii_articulo.aplica_inv_articulo = DS.Tables[0].Rows[0][6].ToString();
                 if (DS.Tables[0].Rows[0][7].ToString() != "")
                     ii_articulo.foto_articulo = DS.Tables[0].Rows[0][7].ToString();
-
+                ii_articulo.contenido =(decimal) DS.Tables[0].Rows[0][8];
                 return ii_articulo;
 
             }
@@ -461,6 +461,7 @@ namespace Administrativo
                                                       "@tipo," +
                                                       "@aplica," +
                                                       "@foto," +
+                                                      "@contenido," +
                                                       "@usuario," +
                                                       "@fecha," +
                                                       "@usuario," +
@@ -476,6 +477,7 @@ namespace Administrativo
                             "id_tart_articulo=@tipo," +
                             "aplica_inv_articulo=@aplica," +
                             "foto_articulo=@foto," +
+                            "contenido_articulo=@contenido," +
                             "mod_p_articulo=@usuario," +
                             "fecha_m_articulo =@fecha" +
                             " WHERE id_articulo=@id";
@@ -489,6 +491,7 @@ namespace Administrativo
                 cmd.Parameters.Add("@tipo", SqlDbType.Int, 8);
                 cmd.Parameters.Add("@aplica", SqlDbType.Char, 1);
                 cmd.Parameters.Add("@foto", SqlDbType.VarChar);
+                cmd.Parameters.Add("@contenido", SqlDbType.Decimal);
                 cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 20);
                 cmd.Parameters.Add("@fecha", SqlDbType.DateTime, 4);
 
@@ -500,6 +503,7 @@ namespace Administrativo
                 cmd.Parameters["@tipo"].Value = ii_EArticulo.id_tart_articulo;
                 cmd.Parameters["@aplica"].Value = ii_EArticulo.aplica_inv_articulo;
                 cmd.Parameters["@foto"].Value = ii_EArticulo.foto_articulo;
+                cmd.Parameters["@contenido"].Value = ii_EArticulo.contenido;
                 cmd.Parameters["@usuario"].Value = Clases.aa_usuario;
                 cmd.Parameters["@fecha"].Value = DateTime.Now;
 
@@ -675,6 +679,109 @@ namespace Administrativo
                 Image image = Image.FromStream(ms, true);
                 return image;
             }
+        }
+        public static string Lee_Unidad_TArticulo(string id_tipo)
+        {
+            DataSet DS = new DataSet();
+            string Error = "";
+            string sql = "  select id_unidad_m,descr_unidad_m from TIPO_ARTICULO inner join Unidad_Medida "+
+                                    " on id_unidad_m = id_unidad_t_articulo "+
+                         " where id_t_articulo = '" + id_tipo + "'";
+            DS = funciones.EjecutaSQL(sql, ref Error);
+            if (DS.Tables[0].Rows.Count > 0)
+            {
+                return DS.Tables[0].Rows[0]["descr_unidad_m"].ToString();
+
+            }
+            return "";
+
+        }
+
+        public static Clases.EGrupo_art Lee_Grupo_art(string id)
+        {
+            Clases.EGrupo_art ii_Grupo_art = new Clases.EGrupo_art();
+            DataSet DS = new DataSet();
+            string Error = "";
+            string sql = "  SELECT * from GRUPO_ARTICULO WHERE  id_g_articulo = '" + id + "'";
+            DS = funciones.EjecutaSQL(sql, ref Error);
+            if (DS.Tables[0].Rows.Count > 0)
+            {
+                ii_Grupo_art.id = id;
+                ii_Grupo_art.descripcion = DS.Tables[0].Rows[0][1].ToString();
+                ii_Grupo_art.estado = DS.Tables[0].Rows[0][2].ToString();
+                ii_Grupo_art.foto = DS.Tables[0].Rows[0][3].ToString();
+                return ii_Grupo_art;
+
+            }
+            return null;
+
+        }
+        public static bool Inserta_Grupo_art(string ii_Modo, Clases.EGrupo_art ii_EGrupo_art, string ii_FileName, ref string Error)
+        {
+            Error = "";
+            SqlConnection con = OpenC(ref Error);
+            SqlCommand cmd;
+            FileStream fs;
+            BinaryReader br;
+            byte[] ImageData = null;
+            string base64data = "";
+            try
+            {
+
+                if (ii_FileName.Length > 0)
+                {
+
+                    base64data = ImageToBase64(ii_FileName);
+                    ii_EGrupo_art.foto = base64data;
+                }
+
+
+                string sql = "";
+                if (ii_Modo.Trim().ToUpper() == "A")
+                {
+                    sql = "INSERT INTO GRUPO_ARTICULO VALUES(@id," +
+                                                      "@descripcion," +
+                                                      "@estado," +
+                                                      "@foto)";
+                }
+                else
+                {
+                    sql = "UPDATE GRUPO_ARTICULO SET " +
+                            "descr_g_articulo =@descripcion," +
+                            "estado_Grupo_art=@estado," +
+                            "estado_g_articulo =@tipo," +
+                            "foto_g_articulo =@foto" +
+                            " WHERE id_g_articulo=@id";
+                }
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.Add("@id", SqlDbType.Int, 8);
+                cmd.Parameters.Add("@descripcion", SqlDbType.VarChar, 500);
+                cmd.Parameters.Add("@estado", SqlDbType.Char, 1);
+                cmd.Parameters.Add("@foto", SqlDbType.VarChar);
+               
+                cmd.Parameters["@id"].Value = ii_EGrupo_art.id;
+                cmd.Parameters["@descripcion"].Value = ii_EGrupo_art.descripcion;
+                cmd.Parameters["@estado"].Value = ii_EGrupo_art.estado;
+                cmd.Parameters["@foto"].Value = ii_EGrupo_art.foto;
+
+                con.Open();
+                int RowsAffected = cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return true;
         }
 
     }

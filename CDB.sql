@@ -176,6 +176,7 @@ CREATE TABLE ARTICULO
 	id_tart_articulo int not null Constraint FK_TArt_Articulo FOREIGN KEY REFERENCES TIPO_ARTICULO(id_t_articulo),
 	aplica_inv_articulo char(1) not null,
 	foto_articulo		varchar(MAX),
+	contenido_articulo	decimal(12,2) not null,
 	creado_p_articulo varchar(20) not null,
 	fecha_c_articulo datetime not null,
 	mod_p_articulo varchar(20) not null,
@@ -216,7 +217,7 @@ create table Carro_compra
 (
 	id_usuario_cc varchar(20) not null constraint FK_usuario_carro FOREIGN KEY REFERENCES usuario(id_usuario),
 	id_articulo_cc int not null Constraint FK_Articulo_cc FOREIGN KEY REFERENCES ARTICULO(id_articulo),
-	cant_cc decimal(4,2) not null,
+	cant_cc decimal(12,2) not null,
 	valor_cc	decimal(12,2) not null,
 	monto_cc decimal(12,2) not null
 	primary key(id_usuario_cc,id_articulo_cc)
@@ -238,7 +239,7 @@ create table Compra_Articulo
 (
 	id_compra_ca int not null constraint FK_Compra_ca FOREIGN KEY REFERENCES Compra(Id_compra),
 	id_articulo_ca int not null Constraint FK_Articulo_ca FOREIGN KEY REFERENCES ARTICULO(id_articulo),
-	cant_ca decimal(4,2) not null,
+	cant_ca decimal(12,2) not null,
 	valor_ca	decimal(12,2) not null,
 	monto_ca decimal(12,2) not null,
 	primary key(id_compra_ca,id_articulo_ca)

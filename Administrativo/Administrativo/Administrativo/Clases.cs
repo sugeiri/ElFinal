@@ -33,6 +33,7 @@ namespace Administrativo
             public string id_tart_articulo = "";
             public string aplica_inv_articulo = "";
             public string foto_articulo = "";
+            public decimal contenido = 0;
         }
         public class EReceta
         {
@@ -51,6 +52,14 @@ namespace Administrativo
             public string id_unidad = "";
             public decimal cantidad = 0;
             public string obligatorio = "";
+        }
+        public class EGrupo_art
+        {
+            public string id = "";
+            public string descripcion = "";
+            public string estado = "";
+            public string foto = "";
+
         }
 
     }

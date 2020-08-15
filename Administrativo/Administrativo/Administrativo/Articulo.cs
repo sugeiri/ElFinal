@@ -79,6 +79,7 @@ namespace Administrativo
                 }
 
                 Tdescr_Tipo.Text = descr.ToString().Trim().ToUpper();
+                TDescrUnidad.Text = funciones.Lee_Unidad_TArticulo(id).ToUpper();
             }
         }
 
@@ -118,6 +119,7 @@ namespace Administrativo
                     MessageBox.Show("No se encontro este dato en la base de datos");
                 }
                 Tdescr_Tipo.Text = descr;
+                TDescrUnidad.Text = funciones.Lee_Unidad_TArticulo(TTipo.Text.ToString().Trim()).ToUpper();
             }
         }
 
@@ -179,6 +181,11 @@ namespace Administrativo
                     PB_Foto.Image = funciones.Base64ToImage(aa_Articulo.foto_articulo);
                 }
                 ii_foto = aa_Articulo.foto_articulo;
+                TContenido.Text = aa_Articulo.contenido.ToString();
+                TDescrUnidad.Text = funciones.Lee_Unidad_TArticulo(TTipo.Text.ToString().Trim()).ToUpper();
+
+
+
 
 
             }
@@ -201,6 +208,7 @@ namespace Administrativo
             else
                 aa_Articulo.aplica_inv_articulo = "";
             aa_Articulo.foto_articulo = ii_foto;
+            aa_Articulo.contenido = decimal.Parse(TContenido.Text.ToString());
 
         }
         private void BSeguir_Click(object sender, EventArgs e)
@@ -239,6 +247,12 @@ namespace Administrativo
                 MessageBox.Show(mensaje);
                 errorProvider1.SetError(TTipo, mensaje);
                 TTipo.Focus();
+            }
+            if (string.IsNullOrWhiteSpace(TContenido.Text.ToString().Trim()))
+            {
+                MessageBox.Show(mensaje);
+                errorProvider1.SetError(TTipo, mensaje);
+                TContenido.Focus();
             }
             Pasa_Datos();
             if (aa_modo.ToUpper().Trim() == "A")
@@ -280,6 +294,8 @@ namespace Administrativo
             TTipo.Text = "";
             Tdescr_Tipo.Text = "";
             CB_AplicaInv.Checked = false;
+            TDescrUnidad.Text = "";
+            TContenido.Text = "";
         }
 
         private void Articulo_Load(object sender, EventArgs e)
