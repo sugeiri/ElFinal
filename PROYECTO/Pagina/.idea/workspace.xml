@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/Equivalentes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Administrativo.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Administrativo.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Articulo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/C_Pant_Gen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/C_Pant_Gen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Clases.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Clases.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/funciones.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Administrativo/Administrativo/Administrativo/funciones.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CDB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../CONVERSIONES.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../CONVERSIONES.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recetas.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recetas_det.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recetas_det.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop-cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProcAlm.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProcAlm.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +157,8 @@
       <workItem from="1597440794933" duration="9598000" />
       <workItem from="1597495066092" duration="10523000" />
       <workItem from="1597509599141" duration="9787000" />
+      <workItem from="1597521215634" duration="419000" />
+      <workItem from="1597521846977" duration="181000" />
     </task>
     <servers />
   </component>
@@ -222,22 +206,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1070" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597516948635" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597520833865">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1597522029360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597520833865">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597522029360" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1597522029360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597520833865">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597522029360" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1597522029360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597520833865">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597522029360" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1597522029360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597520833865" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597522029360" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597520833866">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -328,7 +312,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597520768685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597521984070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
