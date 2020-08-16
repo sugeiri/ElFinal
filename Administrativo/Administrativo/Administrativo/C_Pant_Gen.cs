@@ -30,7 +30,7 @@ namespace Administrativo
             aa_tabla = ii_tabla;
             aa_titulo = ii_titulo;
             aa_modo = ii_modo;
-            LTitulo.Text = "CONSULTA DE "+aa_titulo.ToUpper();
+            LTitulo.Text = "CONSULTA DE " + aa_titulo.ToUpper();
         }
 
         public C_Pant_Gen(string ii_modo, string ii_tabla, string ii_titulo, string ii_query)
@@ -41,7 +41,7 @@ namespace Administrativo
             aa_titulo = ii_titulo;
             aa_modo = ii_modo;
             aa_query = ii_query;
-            LTitulo.Text = "CONSULTA DE "+aa_titulo.ToUpper();
+            LTitulo.Text = "CONSULTA DE " + aa_titulo.ToUpper();
         }
 
         private void C_Pant_Gen_Load(object sender, EventArgs e)
@@ -121,20 +121,20 @@ namespace Administrativo
         {
             int i = Fila_Actual();
             Id = DG_DATOS.Rows[i].Cells[0].Value.ToString().Trim();
-            if (aa_tabla.ToString().Trim().ToUpper() == "GRUPO_ARTICULO")
-            {
-                Grupo_art form = new Grupo_art("m", Id);
-                if (form.ShowDialog() == DialogResult.OK)
-                    Lee_Datos();
-            }
-            else
-            {
-                Clases.ETipo ii_Tipo = funciones.Lee_Tipo(Id, aa_tabla);
-                Pant_Gen form = new Pant_Gen("m", aa_tabla, "MODIFICA " + aa_titulo, ii_Tipo);
-                if (form.ShowDialog() == DialogResult.OK)
-                    Lee_Datos();
-            }
-           
+            //if (aa_tabla.ToString().Trim().ToUpper() == "GRUPO_ARTICULO")
+            //{
+            //    Grupo_art form = new Grupo_art("m", Id);
+            //    if (form.ShowDialog() == DialogResult.OK)
+            //        Lee_Datos();
+            //}
+            //else
+            //{
+            Clases.ETipo ii_Tipo = funciones.Lee_Tipo(Id, aa_tabla);
+            Pant_Gen form = new Pant_Gen("m", aa_tabla, "MODIFICA " + aa_titulo, ii_Tipo);
+            if (form.ShowDialog() == DialogResult.OK)
+                Lee_Datos();
+            //  }
+
 
         }
         private void DG_DATOS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -220,7 +220,7 @@ namespace Administrativo
                 aa_Ultima_Descr_filtro = nombre;
                 if (muestra)
                     Muestra_Filas();
-                
+
                 Filtra(1, nombre, false);
 
             }
@@ -249,7 +249,7 @@ namespace Administrativo
 
 
         }
-       
+
         void Muestra_Filas_SoloEstado()
         {
 
@@ -271,11 +271,11 @@ namespace Administrativo
         void Filtra(int fila, string dato, bool codigo)
         {
             bool tiene_filtro = false;
-                        if (DG_DATOS.Rows.Count > DG_DATOS.Rows.GetRowCount(DataGridViewElementStates.Visible))
+            if (DG_DATOS.Rows.Count > DG_DATOS.Rows.GetRowCount(DataGridViewElementStates.Visible))
             {
                 tiene_filtro = true;
             }
-            
+
             foreach (DataGridViewRow dr in DG_DATOS.Rows)
             {
                 if (tiene_filtro && dr.Visible == false)
@@ -316,7 +316,7 @@ namespace Administrativo
 
         private void BCrear_Click(object sender, EventArgs e)
         {
-            Pant_Gen form = new Pant_Gen("a", aa_tabla, "CREA "+aa_titulo);
+            Pant_Gen form = new Pant_Gen("a", aa_tabla, "CREA " + aa_titulo);
             if (form.ShowDialog() == DialogResult.OK)
                 Lee_Datos();
         }
