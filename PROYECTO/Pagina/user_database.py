@@ -261,10 +261,11 @@ def Consulta_Formula_Receta(receta):
               'sustituir':sust,
               'categoria':x[6],
               'grupo': x[7],
-              'tipo': x[8],
-              'descr_tipo': x[9],
-              'inv': x[10],
-              'foto': x[11]}
+              'descr_grupo': x[8],
+              'tipo': x[9],
+              'descr_tipo': x[10],
+              'inv': x[11],
+              'foto': x[12]}
         lista.append(dict)
     conn.close()
     return lista
