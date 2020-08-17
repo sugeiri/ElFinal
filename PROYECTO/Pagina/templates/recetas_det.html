@@ -41,22 +41,22 @@
                         <li><a href="/">INICIO</a></li>
                         <li><a href="#">Supermercados</a></li>
                         <li><a href="#">Comprar</a>
-                        <ul class="dropdown">
+                            <ul class="dropdown">
                                 {% for cat in Categoria %}
                                     <li><a href="/shop_xcat/{{ cat['cat'] }}">{{ cat['descr'] }}</a></li>
                                 {% endfor %}
-                                </ul>
-                        </li>
-                        {% if usuario != '' %}
-                        <li><a href="#">CUENTA</a>
-                            <ul class="dropdown">
-                                <li><a href="/shop-cart">Ver Carrito</a></li>
-                                <li><a href="/shop-cart">Seguimiento de Compras</a></li>
-                                <li><a href="/shop-cart">Historial de Compras</a></li>
-                                <li><a href="/shop-cart">Configuracion de Cuenta</a></li>
-                                <li><a href="/sign-out">Cerrar Sesion</a></li>
                             </ul>
                         </li>
+                        {% if usuario != '' %}
+                            <li><a href="#">CUENTA</a>
+                                <ul class="dropdown">
+                                    <li><a href="/shop-cart">Ver Carrito</a></li>
+                                    <li><a href="/shop-cart">Seguimiento de Compras</a></li>
+                                    <li><a href="/shop-cart">Historial de Compras</a></li>
+                                    <li><a href="/shop-cart">Configuracion de Cuenta</a></li>
+                                    <li><a href="/sign-out">Cerrar Sesion</a></li>
+                                </ul>
+                            </li>
                         {% endif %}
                         <li><a href="/recetas">Recetas</a></li>
                         <li><a href="/contact">Contact</a></li>
@@ -204,9 +204,9 @@
                     <h5>PRODUCTOS RECOMENDADOS</h5>
                 </div>
             </div>
-            <form name="Formulario" method="post" action="/agregaCarrito2">
+            <form name="Formulario" method="post" action="/SustituirP">
                 <label hidden id="LP">Esta Seguro de Sustituir el Producto:</label>
-                <input type="text" id="Datos2" name="Datos2" hidden >
+                <input type="text" id="Datos2" name="Datos2" hidden>
                 <button hidden type="submit" ID="BE">SI</button>
                 <button hidden type="button" ID="BL" onclick="Limpia_Datos()">NO</button>
             </form>
@@ -220,9 +220,13 @@
                             <ul class="product__hover">
                                 <li><a onclick="Agrega_Carrito({{ formula['articulo'] }})"><span
                                         class="fa fa-shopping-basket" style="color: red"></span></a></li>
-                                {#{% if not formula['sustituir'] %}
-                                    <li><a onclick="Sustituir({{ receta['receta'] }},{{ formula['articulo'] }})"><span class="fa fa-random" style="color: red"></span></a></li>
-                                {% endif %}#}
+                                {% if usuario != '' %}
+                                    {% if not formula['sustituir'] %}
+                                        <li>
+                                            <a onclick="Sustituir({{ formula['articulo'] }})"><span
+                                                    class="fa fa-random" style="color: red"></span></a></li>
+                                    {% endif %}
+                                {% endif %}
                             </ul>
 
                         </div>
@@ -255,7 +259,8 @@
 
     for (var i = 0; i < tables.length; i++) {
         resizableGrid(tables[i]);
-    };
+    }
+    ;
 
     function calcula_por_porcion(cant) {
         var x = document.getElementById("tableId")
@@ -284,8 +289,7 @@
         var dat = '|';
         for (var i = 1; i < x.rows.length; i++) {
             var arti = x.rows[i].cells[0].innerHTML;
-            if(producto.toString().trim()==arti.toString().trim())
-            {
+            if (producto.toString().trim() == arti.toString().trim()) {
                 var cant = x.rows[i].cells[3].innerHTML;
                 var valor = 0;
                 dat = {{ receta['receta'] }} +',' + arti.toString() + ',' + cant.toString() + ',' + valor.toString() + '|';
@@ -305,7 +309,15 @@
         document.getElementById("BE").hidden = true;
         document.getElementById("BL").hidden = true;
     };
+    function Sustituir(id)
+    {
+        var dat = {{ receta['receta'] }} +'.' + id.toString();
+        document.getElementById("Datos2").value=dat.toString();
+        document.getElementById("LP").hidden = false;
+        document.getElementById("BE").hidden = false;
+        document.getElementById("BL").hidden = false;
 
+    }
     function Mensaje_Log() {
         alert('Debe Iniciar Sesion');
     };
