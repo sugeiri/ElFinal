@@ -18,20 +18,19 @@ def Valida_Usuario(usuario,clave):
     conn = Connect()
     query="select id_Tipo_usuario,estado_usuario from USUARIO where id_usuario='"+usuario+"'"
     Cursor = conn.cursor()
-    Cursor_02 = conn.cursor()
     Cursor.execute(query)
     row = Cursor.fetchone()
     estado=row[1]
     if(estado[0].upper()!='A'):
         return "EE:Usuario Inactivo"
     else:
+        Cursor_02 = conn.cursor()
         Cursor_02.execute("Exec ValidaPass '"+usuario+"','"+clave+"'")
         row_02 = str(Cursor_02.fetchone()).split('|')
         Resp = row_02[1].split(':')
         tipo=Resp[0]
         msj = Resp[1]
         if(tipo=='EE'):
-            tkinter.messagebox.showinfo(title="AVISO", message=msj)
             return "EE:Clave Incorrecta"
         else:
             return "00:"+msj
