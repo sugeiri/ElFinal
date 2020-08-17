@@ -15,17 +15,9 @@
     </head>
     <body>
         <div class="container">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            {{message}}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            {% block body %}{% endblock %}
+            {% if Error=='EE' %}
+               <h1 style="color: red">{{ tipo }}</h1>
+            {% endif %}
             <!-- Codrops top bar -->
             <header>
             </header>
@@ -39,11 +31,11 @@
                                 <h1>Log in</h1>
                                 <p>
                                     <label for="username" class="uname" data-icon="u" > Nombre de Usuario </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="Usuario"/>
+                                    <input value="{{ usuario }}" id="username" name="username" required="required" type="text" placeholder="Usuario"/>
                                 </p>
                                 <p>
                                     <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
+                                    <input id="password" value=""{{ clave }} name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
                                 </p>
                                 <p class="login button">
                                     <input type="submit" value="Login" />
@@ -76,7 +68,7 @@
                                 </p>
                                 <p>
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Confirmacion </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" onchange="Valida_PAss()" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p>
                                     <label for="sexosignup" class="uname">Sexo</label>
@@ -108,4 +100,23 @@
             </section>
         </div>
     </body>
+<script>
+    function Valida_PAss()
+    {
+        var clave=document.getElementById("passwordsignup").value
+        var conf=document.getElementById("passwordsignup_confirm").value
+        if(clave!=conf)
+        {
+            alert('Las Claves no Concuerdan');
+            document.getElementById("Registrarme").disabled =true
+        }else{
+            document.getElementById("Registrarme").disabled =false
+        }
+    }
+    function  Presenta_MSG(msg)
+    {
+        alert(msg);
+
+    }
+</script>
 </html>

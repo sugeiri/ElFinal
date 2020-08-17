@@ -99,8 +99,11 @@ def IniciarSesion():
             session.cookies={'username': usuario}
             return redirect("/", code=302)
         elif Error == "EE":
-            flash(tipo)
-            return redirect(request.url)
+            return render_template('Login.html',
+                                   Error=Error,
+                                   tipo=tipo,
+                                   usuario=usuario,
+                                   clave=clave)
     else:
         pass
 @app.route("/sign-out")
@@ -120,8 +123,15 @@ def Registro():
         sexo = request.form['sexosignup']
         tipo = request.form['tiposignup']
         if clave!=confirmacion:
-            flash('Las Claves no Coinciden')
-            return render_template('login.html')
+            return render_template('Login.html',
+                                   Error='EE',
+                                   tipo='Las Claves no Coinciden',
+                                   usuario=usuario,
+                                   clave=clave)
+
+            return render_template('Login.html',
+                                   Error=Error,
+                                   tipo=tipo)
             pass
         else:
             resultado = user_database.Inserta_Usuario(usuario,nombre,email,clave,tipo,sexo)
@@ -131,8 +141,9 @@ def Registro():
                 x = tipo + '|' + usuario
                 return redirect("/", code=302)
             elif Error == "EE":
-                flash(tipo)
-                return render_template('success.html', usuario=Error + ' ' + tipo)
+                return render_template('Login.html',
+                                       Error=Error,
+                                       tipo=tipo)
     else:
         pass
 
