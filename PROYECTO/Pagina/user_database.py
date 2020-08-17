@@ -9,10 +9,10 @@ from PIL import Image
 from io import BytesIO
 import cv2
 def Connect():
-    #conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
-    #                       password='12345', database='db_ElFinal')
-    conn = pymssql.connect(server='QJM_SUGEIRI', user='sa',
-                            password='971223', database='db_ElFinal')
+    conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
+                           password='12345', database='db_ElFinal')
+    #conn = pymssql.connect(server='QJM_SUGEIRI', user='sa',
+    #                        password='971223', database='db_ElFinal')
     return conn
 def Valida_Usuario(usuario,clave):
     conn = Connect()
