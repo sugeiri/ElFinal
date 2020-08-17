@@ -266,6 +266,19 @@ create table equivalencia
 	primary key(id_unidad_1_equiv,id_unidad_2_equiv)
 )
 grant all on equivalencia to public;
+--drop table Formula_receta_XUsuario
+create table Formula_receta_XUsuario
+(
+	id_usuario_fru	varchar(20) not null constraint FK_usuario_fru FOREIGN KEY REFERENCES usuario(id_usuario),
+	id_receta_fru   int not null constraint FK_receta_fru FOREIGN KEY REFERENCES receta(id_receta),
+	id_articulo_Ori_fru int not null constraint FK_Art_ori_fru FOREIGN KEY REFERENCES articulo(id_articulo),
+	id_articulo_Sust_fru int not null constraint FK_Art_fru FOREIGN KEY REFERENCES articulo(id_articulo),
+	id_unidad_fru char(5) not null  Constraint FK_Unidad_fru FOREIGN KEY REFERENCES Unidad_Medida(id_unidad_m),
+	cant_art_fru	   decimal(6,2) not null,
+	sust_art_fru	   char(1) not null
+	primary key(id_usuario_fru,id_receta_fru,id_articulo_Ori_fru)
+)
+grant all on  Formula_receta_XUsuario to public;
 ----ESTADOS COMPRA
 ----      	 A=PENDIENTE O ACTIVO, 
 ----		 F=FINALIZADO O ENTREGADO, 

@@ -168,27 +168,33 @@ def receta_det(id):
         username = session.cookies.get('username')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
-    for tipo in TipoReceta:
-        for receta in tipo['recetas']:
-            if str(receta['receta'])==str(id):
-                Lreceta=receta
-                break
-
+        if user_database.Consulta_ExisteSust(username,str(id)):
+            resultado=user_database.Consulta_Formula_Receta_XUsuario(username,id)
+            for tipo in TipoReceta:
+                for receta in tipo['recetas']:
+                    if str(receta['receta']) == str(id):
+                        receta['formula']={}
+                        receta['formula']=resultado
+                        Lreceta = receta
+                        break
+        else:
+            for tipo in TipoReceta:
+                for receta in tipo['recetas']:
+                    if str(receta['receta'])==str(id):
+                        Lreceta=receta
+                        break
+    else:
+        for tipo in TipoReceta:
+            for receta in tipo['recetas']:
+                if str(receta['receta']) == str(id):
+                    Lreceta = receta
+                    break
     return render_template('recetas_det.html',
                            carrito=cant,
                            usuario=username,
                            receta=Lreceta,
                            Categoria=Categoria)
 
-# @app.route('/prueba')
-# def prueba():
-#     username = ''
-#     cant = 0
-#     if 'username' in session.cookies:
-#         username = session.cookies.get('username')
-#         cant = user_database.Consulta_TotalEnCarro(username)
-#         cant = cant[0]
-#     return render_template('prueba.html',carrito=cant,usuario=username,tipo_receta=TipoReceta)
 @app.route('/agregaCarrito', methods=['POST'])
 def agregaCarrito():
     username = ''
@@ -246,38 +252,40 @@ def Act_Carrito():
     for x in carro:
         importe+=x['monto']
     return redirect("/shop-cart", code=302)
-# @app.route('/SustituirP/<id>')
-# def SustituirP(id):
-#     username = ''
-#     cant = 0
-#     arts=''
-#     rec=''
-#     arts=id
-#     if 'username' in session.cookies:
-#         username = session.cookies.get('username')
-#         cant = user_database.Consulta_TotalEnCarro(username)
-#         cant = cant[0]
-#         sub=''
-#         sub=str(arts).split('.')
-#         arts=sub[1]
-#         rec=sub[0]
-#         resultado = user_database.Busca_Articulo_Equivalente(arts)
-#     else:
-#         return redirect("/Login", code=302)
-#     return render_template('Equivalentes.html',
-#                             usuario=username, carrito=cant,
-#                             Articulos=resultado,
-#                             Arti_Antes=arts,
-#                             Receta=rec)
-#
-# @app.route('/AgregaSust/<id>')
-# def AgregaSust(id):
-#     art=''
-#     art=id
-#     sub = str(art).split('.')
-#     arts = {'Art_Antes':sub[0],'Art_Nuevo':sub[1]}
-#     ArtSus.append(arts)
-#     return redirect('/det_receta/'+sub[2],code=302)
+@app.route('/SustituirP',  methods=['POST'])
+def SustituirP():
+     username = ''
+     cant = 0
+     if 'username' in session.cookies:
+         username = session.cookies.get('username')
+         cant = user_database.Consulta_TotalEnCarro(username)
+         cant = cant[0]
+         if request.method == 'POST':
+             Datos = request.form['Datos2']
+             sub=str(Datos).split('.')
+             rec=sub[0]
+             arts = sub[1]
+             resultado = user_database.Busca_Articulo_Equivalente(arts)
+             return render_template('Equivalentes.html',
+                                    usuario=username, carrito=cant,
+                                    Articulos=resultado,
+                                    Arti_Antes=arts,
+                                    Receta=rec)
+     return redirect("/Login", code=302)
+
+
+@app.route('/AgregaSust/<id>')
+def AgregaSust(id):
+    username=''
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+    datos=str(id)
+    sub = str(datos).split('.')
+    art_Ori=sub[0]
+    art_Nue=sub[1]
+    receta=sub[2]
+    resultado=user_database.Inserta_Sustututo(username,art_Ori,art_Nue,receta)
+    return redirect('/det_receta/'+sub[2],code=302)
 if __name__ == '__main__':
     app.debug = True
     app.run()

@@ -186,7 +186,7 @@ CREATE PROCEDURE Busca_Formula_Receta
 
 AS 
 	select id_articulo_fr,descr_articulo,id_unidad_fr,descr_unidad_m,cant_art_fr,no_sust_art_fr,
-		   id_cat_articulo,id_gart_articulo,id_tart_articulo,descr_t_articulo,aplica_inv_articulo,
+		   id_cat_articulo,id_gart_articulo,descr_g_articulo,id_tart_articulo,descr_t_articulo,aplica_inv_articulo,
 		   foto_articulo 
 	from Formula_receta 
 			inner join ARTICULO  ON
@@ -398,9 +398,192 @@ AS
 	select * from ARTICULO
 		where id_cat_articulo=@cat and
 			  id_gart_articulo=@grupo and
-			  id_tart_articulo = @tipo
+			  id_tart_articulo = @tipo AND
+			  id_articulo <>@ii_id
 	
 	
 		
 GO
 grant all on Busca_Articulo_Equivalente to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Consulta_ExisteSust' AND type = 'P')
+   DROP PROCEDURE Consulta_ExisteSust
+GO
+
+CREATE PROCEDURE Consulta_ExisteSust
+   @ii_usuario			varchar(20),
+   @ii_receta			int
+
+AS 
+	if exists(select * from Formula_receta_XUsuario where id_usuario_fru=@ii_usuario and id_receta_fru=@ii_receta)
+		select '00'
+	ELse
+		select '11'
+	
+		
+GO
+grant all on Consulta_ExisteSust to public
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Consulta_ExisteSust_Art' AND type = 'P')
+   DROP PROCEDURE Consulta_ExisteSust_Art
+GO
+
+CREATE PROCEDURE Consulta_ExisteSust_Art
+   @ii_usuario			varchar(20),
+   @ii_receta			int,
+   @ii_articulo			int
+
+AS 
+	if exists(select * from Formula_receta_XUsuario where id_usuario_fru=@ii_usuario and id_receta_fru=@ii_receta and id_articulo_Sust_fru=@ii_articulo)
+		select '00'
+	ELse
+		select '11'
+	
+		
+GO
+grant all on Consulta_ExisteSust_Art to public
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'Busca_Formula_Receta_XUsuario' AND type = 'P')
+   DROP PROCEDURE Busca_Formula_Receta_XUsuario
+GO
+
+CREATE PROCEDURE Busca_Formula_Receta_XUsuario
+   @ii_usuario			varchar(20),
+   @ii_receta			int
+
+AS 
+	if exists(select * from Formula_receta_XUsuario where id_usuario_fru=@ii_usuario and id_receta_fru=@ii_receta)
+		BEGIN
+			select id_articulo_Sust_fru,descr_articulo,id_unidad_fru,descr_unidad_m,cant_art_fru,sust_art_fru,
+				   id_cat_articulo,id_gart_articulo,descr_g_articulo,id_tart_articulo,descr_t_articulo,aplica_inv_articulo,
+				   foto_articulo 
+			from Formula_receta_XUsuario 
+					inner join ARTICULO  ON
+						id_articulo=id_articulo_Sust_fru 
+					INNER JOIN Unidad_Medida on 
+						id_unidad_fru=id_unidad_m 
+					INNER JOIN TIPO_ARTICULO ON 
+						id_tart_articulo=id_t_articulo
+					INNER JOIN GRUPO_ARTICULO ON 
+						id_gart_articulo=id_g_articulo
+			where id_receta_fru=@ii_receta
+		END
+	ELse
+		BEGIN
+			select id_articulo_fr,descr_articulo,id_unidad_fr,descr_unidad_m,cant_art_fr,no_sust_art_fr,
+				   id_cat_articulo,id_gart_articulo,descr_g_articulo,id_tart_articulo,descr_t_articulo,aplica_inv_articulo,
+				   foto_articulo 
+			from Formula_receta 
+					inner join ARTICULO  ON
+						id_articulo=id_articulo_fr 
+					INNER JOIN Unidad_Medida on 
+						id_unidad_fr=id_unidad_m 
+					INNER JOIN TIPO_ARTICULO ON 
+						id_tart_articulo=id_t_articulo
+					INNER JOIN GRUPO_ARTICULO ON 
+						id_gart_articulo=id_g_articulo
+			where id_receta_fr=@ii_receta
+		END
+	
+		
+GO
+grant all on Busca_Formula_Receta_XUsuario to public
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'ICarrito_esp' AND type = 'P')
+   DROP PROCEDURE ICarrito_esp
+GO
+
+CREATE PROCEDURE ICarrito_esp
+   @ii_usuario		varchar(20),
+   @ii_receta		int,
+   @ii_articulo		int,
+   @ii_cant			decimal(12,2),
+   @ii_valor		decimal(12,2)
+
+AS 
+	BEGIN TRY
+		BEGIN TRANSACTION
+		 	Declare @cant_or decimal(12,2) =(select isnull(max(cant_cc),0) as Cod from Carro_compra where id_usuario_cc=@ii_usuario and id_articulo_cc=@ii_articulo);
+			declare @sum decimal(12,2)
+			DECLARE @CArt int
+			select @CArt=cant_f003 from Busca_Cant_art_Sust(@ii_receta,@ii_articulo,@ii_cant,@ii_usuario)
+			set @sum=@cant_or+@CArt
+			Declare @Importe decimal(12,2) =@sum*@ii_valor 
+			if @cant_or<=0 
+			BEGIN
+				INSERT INTO Carro_compra values(@ii_usuario,@ii_articulo,(select @sum),@ii_valor,(select @Importe))
+			END
+			ELSE
+			BEGIN
+			UPDATE Carro_compra SET cant_cc=@sum,monto_cc=@Importe where id_usuario_cc=@ii_usuario and  id_articulo_cc=@ii_articulo
+			END
+			Select '|00:Insertado|'
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		Select 'EE:ERROR AL INSERTAR DATOS'
+		ROLLBACK TRANSACTION;
+	END CATCH
+
+	
+GO
+
+grant all on ICarrito_esp to public
+
+
+
+IF EXISTS (SELECT name FROM sysobjects 
+         WHERE name = 'ISustituto' AND type = 'P')
+   DROP PROCEDURE ISustituto
+GO
+
+CREATE PROCEDURE ISustituto
+   @ii_usuario			varchar(20),
+   @ii_receta			int,
+   @ii_articulo_Ori		int,
+   @ii_articulo_sust	int
+
+AS 
+	if exists(select * from Formula_receta_XUsuario where id_usuario_fru=@ii_usuario and id_receta_fru=@ii_receta and id_articulo_Ori_fru=@ii_articulo_Ori)
+		BEGIN
+			update Formula_receta_XUsuario set 
+				id_articulo_Sust_fru=@ii_articulo_sust
+			where id_usuario_fru=@ii_usuario and
+				  id_receta_fru=@ii_receta and
+				  id_articulo_Ori_fru=@ii_articulo_Ori
+			Select '|00:Modificado|'
+		END
+	ELSE
+		BEGIN TRY
+			BEGIN TRANSACTION
+				INSERT INTO Formula_receta_XUsuario
+		 		select @ii_usuario,@ii_receta,id_articulo_fr,id_articulo_fr,id_unidad_fr,cant_art_fr,no_sust_art_fr
+					from Formula_receta
+				where id_receta_fr=@ii_receta
+
+				update Formula_receta_XUsuario set 
+						id_articulo_Sust_fru=@ii_articulo_sust
+					where id_usuario_fru=@ii_usuario and
+						  id_receta_fru=@ii_receta and
+						  id_articulo_Ori_fru=@ii_articulo_Ori
+			Select '|00:Modificado|'
+				Select '|00:Insertado|'
+			COMMIT TRANSACTION;
+		END TRY
+		BEGIN CATCH
+			Select 'EE:ERROR AL INSERTAR DATOS'
+			ROLLBACK TRANSACTION;
+	END CATCH
+
+	
+GO
+
+grant all on ISustituto to public
+
+

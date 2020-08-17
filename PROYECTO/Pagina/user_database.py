@@ -9,10 +9,10 @@ from PIL import Image
 from io import BytesIO
 import cv2
 def Connect():
-    conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
-                           password='12345', database='db_ElFinal')
-    #conn = pymssql.connect(server='QJM_SUGEIRI', user='ElFinal',
-    #                        password='12345', database='db_ElFinal')
+    #conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
+    #                       password='12345', database='db_ElFinal')
+    conn = pymssql.connect(server='QJM_SUGEIRI', user='sa',
+                            password='971223', database='db_ElFinal')
     return conn
 def Valida_Usuario(usuario,clave):
     conn = Connect()
@@ -268,13 +268,39 @@ def Consulta_Formula_Receta(receta):
               'foto': x[12]}
         lista.append(dict)
     conn.close()
+
+    return lista
+def Consulta_Formula_Receta_XUsuario(usuario,receta):
+    query = " exec Busca_Formula_Receta_XUsuario 'sugeiri','3'"#+usuario+"',"+str(receta)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    lista=[]
+    dict={}
+    for x in Cursor:
+        sust = False
+        if str(x[5]).upper() == 'X':
+            sust = True
+        dict = {'articulo': x[0],
+                'descr': x[1],
+                'unidad': x[2],
+                'descr_unidad': x[3],
+                'cant': x[4],
+                'sustituir': sust,
+                'categoria': x[6],
+                'grupo': x[7],
+                'descr_grupo': x[8],
+                'tipo': x[9],
+                'descr_tipo': x[10],
+                'inv': x[11],
+                'foto': x[12]}
+        lista.append(dict)
+    conn.close()
     return lista
 def Inserta_Carrito(usuario,datos):
     spl=str(datos).split('|')
-
     try:
         conn=Connect()
-
         for spl_2 in spl:
             spl_3 = str(spl_2).split(',')
             receta = spl_3[0]
@@ -282,7 +308,10 @@ def Inserta_Carrito(usuario,datos):
                 art = spl_3[1]
                 cant=spl_3[2]
                 valor = spl_3[3]
-                sql="Exec ICarrito '"+usuario+"',"+receta+","+art+","+cant+","+valor+""
+                if Consulta_ExisteSust_XArt(usuario, receta,art):
+                    sql = "Exec ICarrito_esp '" + usuario + "'," + receta + "," + art + "," + cant + "," + valor + ""
+                else:
+                    sql="Exec ICarrito '"+usuario+"',"+receta+","+art+","+cant+","+valor+""
                 Cursor_02 = conn.cursor()
                 Cursor_02.execute(sql)
                 row = str(Cursor_02.fetchone()).split('|')
@@ -386,4 +415,47 @@ def Busca_Articulo_Equivalente(art):
         lista_1.append(dict_1)
     conn.close()
     return lista_1
+def Consulta_ExisteSust(usuario,receta):
+    query = " exec Consulta_ExisteSust '"+usuario+"',"+str(receta)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    row = Cursor.fetchone()
+    if row[0]=="00":
+        conn.close()
+        return True
+    else:
+        conn.close()
+        return False
+def Consulta_ExisteSust_XArt(usuario,receta,articulo):
+    query = " exec Consulta_ExisteSust_Art '"+usuario+"',"+str(receta)+","+str(articulo)
+    conn = Connect()
+    Cursor = conn.cursor()
+    Cursor.execute(query)
+    row = str(Cursor.fetchone())
+    conn.close()
+    if row=="00":
+        return True
+    else:
+        return False
 
+def Inserta_Sustututo(usuario,art_Ori,art_Nue,receta):
+
+    try:
+        conn=Connect()
+        sql = "Exec ISustituto '" + usuario + "'," + receta + "," + art_Ori + "," + art_Nue
+        Cursor_02 = conn.cursor()
+        Cursor_02.execute(sql)
+        row = str(Cursor_02.fetchone()).split('|')
+        Resp=row[1].split(':')
+        msj = Resp[1]
+        if Resp[0].upper()=='EE':
+            Cursor_02.close()
+            conn.close()
+            return msj
+        Cursor_02.close()
+        conn.commit()
+        conn.close()
+        return "00:Insertado"
+    except Exception as ex:
+        return "EE:No se pudo Agregar Productos al Carrito"+ex
