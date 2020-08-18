@@ -132,6 +132,7 @@ CREATE TABLE EMPRESA
 	url_empresa varchar(200) not null,
 	estado_empresa char(1) not null,
 	coordenadas_empresa varchar(100) not null,
+	foto_empresa	varchar(MAX) not null
 )
 grant all on  EMPRESA to public;
 --PRODUCTOS
@@ -279,6 +280,15 @@ create table Formula_receta_XUsuario
 	primary key(id_usuario_fru,id_receta_fru,id_articulo_Ori_fru)
 )
 grant all on  Formula_receta_XUsuario to public;
+
+create table Precio_Exist_Art
+(
+	id_empresa_pa int not null constraint FK_empresa_pa FOREIGN KEY REFERENCES empresa(id_empresa),
+	id_articulo_pa int not null Constraint FK_Articulo_pa FOREIGN KEY REFERENCES ARTICULO(id_articulo),
+	precio_pa		decimal(12,2) not null,
+	Existencia_pa	int not null	
+)
+grant all on  Precio_Exist_Art to public;
 ----ESTADOS COMPRA
 ----      	 A=PENDIENTE O ACTIVO, 
 ----		 F=FINALIZADO O ENTREGADO, 
