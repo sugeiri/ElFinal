@@ -20,8 +20,8 @@ namespace Administrativo
         {
             nombre_db = "db_ElFinal";
             Instancia_db = Environment.MachineName.ToString().Trim();
-             ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=" + Instancia_db + ";database=" + nombre_db + "";
-            //ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=173.249.57.62;database=" + nombre_db + "";
+             //ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=" + Instancia_db + ";database=" + nombre_db + "";
+            ConnectionString = "Persist Security Info=False;User ID = ElFinal; Password=12345;Initial Catalog = " + nombre_db + "; Server=173.249.57.62;database=" + nombre_db + "";
 
            
             SqlConnection conexion = new SqlConnection(ConnectionString);

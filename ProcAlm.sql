@@ -560,26 +560,39 @@ AS
 			Select '|00:Modificado|'
 		END
 	ELSE
-		BEGIN TRY
-			BEGIN TRANSACTION
-				INSERT INTO Formula_receta_XUsuario
-		 		select @ii_usuario,@ii_receta,id_articulo_fr,id_articulo_fr,id_unidad_fr,cant_art_fr,no_sust_art_fr
-					from Formula_receta
-				where id_receta_fr=@ii_receta
-
-				update Formula_receta_XUsuario set 
+		BEGIN
+			if exists(select * from Formula_receta_XUsuario where id_usuario_fru=@ii_usuario and id_receta_fru=@ii_receta and id_articulo_Sust_fru=@ii_articulo_Ori)
+				BEGIN
+					update Formula_receta_XUsuario set 
 						id_articulo_Sust_fru=@ii_articulo_sust
 					where id_usuario_fru=@ii_usuario and
 						  id_receta_fru=@ii_receta and
-						  id_articulo_Ori_fru=@ii_articulo_Ori
-			Select '|00:Modificado|'
-				Select '|00:Insertado|'
-			COMMIT TRANSACTION;
-		END TRY
-		BEGIN CATCH
-			Select 'EE:ERROR AL INSERTAR DATOS'
-			ROLLBACK TRANSACTION;
-	END CATCH
+						  id_articulo_Sust_fru=@ii_articulo_Ori
+					Select '|00:Modificado|'
+				END
+			ELSE
+				BEGIN TRY
+						BEGIN TRANSACTION
+							INSERT INTO Formula_receta_XUsuario
+		 					select @ii_usuario,@ii_receta,id_articulo_fr,id_articulo_fr,id_unidad_fr,cant_art_fr,no_sust_art_fr
+								from Formula_receta
+							where id_receta_fr=@ii_receta
+
+							update Formula_receta_XUsuario set 
+									id_articulo_Sust_fru=@ii_articulo_sust
+								where id_usuario_fru=@ii_usuario and
+									  id_receta_fru=@ii_receta and
+									  id_articulo_Ori_fru=@ii_articulo_Ori
+						Select '|00:Modificado|'
+							Select '|00:Insertado|'
+						COMMIT TRANSACTION;
+					END TRY
+					BEGIN CATCH
+						Select 'EE:ERROR AL INSERTAR DATOS'
+						ROLLBACK TRANSACTION;
+				END CATCH
+		END
+		
 
 	
 GO
