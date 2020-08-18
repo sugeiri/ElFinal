@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Impuesto/Impuesto.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../Impuesto/Impuesto.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Pagina.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Pagina.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,19 +67,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\static" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\static\css" />
       <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates\css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Flask server.Pagina">
@@ -127,7 +136,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -165,11 +174,12 @@
       <workItem from="1597671497431" duration="100000" />
       <workItem from="1597671774174" duration="2771000" />
       <workItem from="1597680092213" duration="1762000" />
+      <workItem from="1597706715984" duration="8840000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="4" key="#Plugins" timestamp="1597234614683">
@@ -212,38 +222,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1074" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597673945643" />
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="166" key="GridCell.Tab.0.bottom" timestamp="1597715446489">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="166" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1597715446489" />
+    <state width="1286" height="166" key="GridCell.Tab.0.center" timestamp="1597715446489">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="166" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1597715446489" />
+    <state width="1286" height="166" key="GridCell.Tab.0.left" timestamp="1597715446489">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="166" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1597715446489" />
+    <state width="1286" height="166" key="GridCell.Tab.0.right" timestamp="1597715446489">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="166" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1597715446489" />
+    <state width="1286" height="208" key="GridCell.Tab.1.bottom" timestamp="1597715444935">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="208" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1597715444935" />
+    <state width="1286" height="208" key="GridCell.Tab.1.center" timestamp="1597715444935">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="208" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1597715444935" />
+    <state width="1286" height="208" key="GridCell.Tab.1.left" timestamp="1597715444934">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1597681870035">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1286" height="208" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1597715444934" />
+    <state width="1286" height="208" key="GridCell.Tab.1.right" timestamp="1597715444935">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1597681870035" />
+    <state width="1286" height="208" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1597715444935" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1597243290781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -274,48 +292,73 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>136</line>
+          <line>146</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/user_database.py</url>
-          <line>390</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>293</line>
+          <line>312</line>
           <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>210</line>
+          <line>223</line>
           <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>202</line>
+          <line>215</line>
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/user_database.py</url>
-          <line>329</line>
+          <line>359</line>
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>182</line>
+          <line>195</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>186</line>
+          <line>199</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>90</line>
+          <line>96</line>
           <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_database.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_database.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>111</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>99</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="194" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="jinja2-line">
           <url>file://$PROJECT_DIR$/templates/recetas.html</url>
@@ -328,9 +371,9 @@
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="jinja2-line">
-          <url>file://$PROJECT_DIR$/templates/login.html</url>
-          <line>17</line>
-          <option name="timeStamp" value="182" />
+          <url>file://$PROJECT_DIR$/templates/index.html</url>
+          <line>59</line>
+          <option name="timeStamp" value="191" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/js/jquery.countdown.min.js</url>
@@ -353,7 +396,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597681818689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597715409405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

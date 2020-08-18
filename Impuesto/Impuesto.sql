@@ -32,11 +32,12 @@ grant all on ASIGNACION_IMPUESTO to public;
 CREATE TABLE HIST_CAM_IMPUESTO
 (
 	id_impuesto_hci int not null constraint fk_impuestohci foreign key references IMPUESTO(id_impuesto),
+	n_linea int not null, 
 	Porc_impuesto_hci decimal(12,2) not null,
 	Fecha_Mod_hci   datetime not null,
 	Mod_Por_hci    char(10) not null,
 	Motivo_hci		varchar(MAX) not null
-	primary key(id_impuesto_hci)
+	primary key(id_impuesto_hci, n_linea)
 )
 grant all on HIST_CAM_IMPUESTO to public;
 
