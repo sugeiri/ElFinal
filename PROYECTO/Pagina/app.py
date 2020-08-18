@@ -16,17 +16,20 @@ TipoReceta = user_database.Consulta_TipoReceta()
 def main_index():
     username=''
     cant=0
+    tipo_user=''
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant=user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
-    return render_template('index.html',usuario=username,carrito=cant,Categoria=Categoria)
+    return render_template('index.html', usuario=username, carrito=cant, Categoria=Categoria, tipo_user=tipo_user)
 @app.route('/shop')
 def shop():
     username = ''
     cant=0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant=cant[0]
     Articulos=user_database.Busca_Articulo_XCat('')
@@ -43,6 +46,7 @@ def shop_xcat(id):
     cant=0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant=cant[0]
     cat=''
@@ -64,6 +68,7 @@ def shopcart():
     importe=0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
         carro = user_database.Consulta_Carrito(username)
@@ -83,6 +88,7 @@ def shopcart():
 def login():
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         return redirect("/", code=302)
     return render_template('login.html')
 
@@ -92,11 +98,15 @@ def IniciarSesion():
         usuario = request.form['username']
         clave = request.form['password']
         resultado = user_database.Valida_Usuario(usuario, clave)
+
+        split = str(resultado).upper().split('|')
         Error = str(resultado[0:2]).upper()
-        tipo = str(resultado[3:])
+        tipo = str(split[0][3:])
+        tipo_user= split[1]
         if Error != "EE":
             session.auth = (usuario, clave)
-            session.cookies={'username': usuario}
+            session.cookies={'username': usuario,
+                             'tipo_user': tipo_user}
             return redirect("/", code=302)
         elif Error == "EE":
             return render_template('Login.html',
@@ -154,6 +164,7 @@ def categoria(id):
     cant = 0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
     return redirect("/shop", code=302)
 @app.route("/recetas")
@@ -162,6 +173,7 @@ def receta():
     cant = 0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
     return render_template('recetas.html',
@@ -177,6 +189,7 @@ def receta_det(id):
     Lreceta=[]
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
         if user_database.Consulta_ExisteSust(username,str(id)):
@@ -212,6 +225,7 @@ def agregaCarrito():
     cant = 0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
     if request.method == 'POST':
@@ -229,6 +243,7 @@ def agregaCarrito2():
     username = ''
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
     if request.method == 'POST':
         Datos= request.form['Datos2']
         resultado = user_database.Inserta_Carrito(username, Datos )
@@ -241,6 +256,7 @@ def agrega_Art(id):
     art=id
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
     resultado = user_database.Inserta_1A_Carrito(username, art )
@@ -251,6 +267,7 @@ def Act_Carrito():
     cant = 0
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
         cant = user_database.Consulta_TotalEnCarro(username)
         cant = cant[0]
     if request.method == 'POST':
@@ -269,6 +286,7 @@ def SustituirP():
      cant = 0
      if 'username' in session.cookies:
          username = session.cookies.get('username')
+         tipo_user = session.cookies.get('tipo_user')
          cant = user_database.Consulta_TotalEnCarro(username)
          cant = cant[0]
          if request.method == 'POST':
@@ -290,6 +308,7 @@ def AgregaSust(id):
     username=''
     if 'username' in session.cookies:
         username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
     datos=str(id)
     sub = str(datos).split('.')
     art_Ori=sub[0]

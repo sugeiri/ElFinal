@@ -7,7 +7,7 @@ import pymssql
 import base64
 from PIL import Image
 from io import BytesIO
-import cv2
+#import cv2
 def Connect():
     conn = pymssql.connect(server='173.249.57.62', user='ElFinal',
                            password='12345', database='db_ElFinal')
@@ -21,6 +21,7 @@ def Valida_Usuario(usuario,clave):
     Cursor.execute(query)
     row = Cursor.fetchone()
     estado=row[1]
+    tipo_user=row[0]
     if(estado[0].upper()!='A'):
         return "EE:Usuario Inactivo"
     else:
@@ -33,7 +34,8 @@ def Valida_Usuario(usuario,clave):
         if(tipo=='EE'):
             return "EE:Clave Incorrecta"
         else:
-            return "00:"+msj
+            return "00:"+ str(msj) + "|"+ str(tipo_user)
+          #return "00:" + msj
     return "EE:No Existe el usuario"
 def Inserta_Usuario(usuario,nombre,email,clave,tipo,sexo):
     try:
