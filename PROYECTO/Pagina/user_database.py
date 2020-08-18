@@ -272,7 +272,7 @@ def Consulta_Formula_Receta(receta):
 
     return lista
 def Consulta_Formula_Receta_XUsuario(usuario,receta):
-    query = " exec Busca_Formula_Receta_XUsuario 'sugeiri','3'"#+usuario+"',"+str(receta)
+    query = " exec Busca_Formula_Receta_XUsuario '"+usuario+"',"+str(receta)
     conn = Connect()
     Cursor = conn.cursor()
     Cursor.execute(query)

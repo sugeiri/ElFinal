@@ -245,7 +245,7 @@ def agregaCarrito2():
         username = session.cookies.get('username')
         tipo_user = session.cookies.get('tipo_user')
     if request.method == 'POST':
-        Datos= request.form['Datos2']
+        Datos= request.form['Datos3']
         resultado = user_database.Inserta_Carrito(username, Datos )
         Error = resultado[0:2].upper()
         tipo = str(resultado[3:])

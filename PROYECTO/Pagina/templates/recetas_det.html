@@ -210,6 +210,12 @@
                 <button hidden type="submit" ID="BE">SI</button>
                 <button hidden type="button" ID="BL" onclick="Limpia_Datos()">NO</button>
             </form>
+        <form name="Formulario" method="post" action="/agregaCarrito2">
+                <label hidden id="LPG">Esta Seguro de Agregar el Producto:</label>
+                <input type="text" id="Datos3" name="Datos3" hidden>
+                <button hidden type="submit" ID="BEG">SI</button>
+                <button hidden type="button" ID="BLG" onclick="Limpia_Datos()">NO</button>
+            </form>
             <br>
             <br>
             {% for formula in receta['formula'] %}
@@ -293,21 +299,29 @@
                 var cant = x.rows[i].cells[3].innerHTML;
                 var valor = 0;
                 dat = {{ receta['receta'] }} +',' + arti.toString() + ',' + cant.toString() + ',' + valor.toString() + '|';
-                document.getElementById("Datos2").value = dat.toString();
+                document.getElementById("Datos3").value = dat.toString();
                 break;
             }
 
         }
 
-        document.getElementById("LP").hidden = false;
-        document.getElementById("BE").hidden = false;
-        document.getElementById("BL").hidden = false;
+        document.getElementById("LPG").hidden = false;
+        document.getElementById("BEG").hidden = false;
+        document.getElementById("BLG").hidden = false;
+
+        document.getElementById("LP").hidden = true;
+        document.getElementById("BE").hidden = true;
+        document.getElementById("BL").hidden = true;
     };
 
     function Limpia_Datos() {
         document.getElementById("LP").hidden = true;
         document.getElementById("BE").hidden = true;
         document.getElementById("BL").hidden = true;
+
+        document.getElementById("LPG").hidden = true;
+        document.getElementById("BEG").hidden = true;
+        document.getElementById("BLG").hidden = true;
     };
     function Sustituir(id)
     {
@@ -316,6 +330,10 @@
         document.getElementById("LP").hidden = false;
         document.getElementById("BE").hidden = false;
         document.getElementById("BL").hidden = false;
+
+        document.getElementById("LPG").hidden = true;
+        document.getElementById("BEG").hidden = true;
+        document.getElementById("BLG").hidden = true;
 
     }
     function Mensaje_Log() {
