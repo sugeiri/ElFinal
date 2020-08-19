@@ -336,13 +336,16 @@ def Conf_Cuenta():
 def Direcciones():
     username = ''
     tipo_user = ''
-    Direccion= ''
+    Direccion= []
     if 'username' in session.cookies:
         username = session.cookies.get('username')
         tipo_user = session.cookies.get('tipo_user')
         resultado = user_database.Consulta_Direcciones(username)
         # split = str(resultado).upper().split('|')
-        if resultado.size()>0:
-            Direccion = str(resultado[2]).upper()
+        if len(resultado)>0:
+            i=0
+            for x in resultado:
+                Direccion[i] = str(x[0]).upper()
+                i=i+1
 
     return render_template('Direcciones.html', usuario=username, tipo_user=tipo_user, Direccion=Direccion)

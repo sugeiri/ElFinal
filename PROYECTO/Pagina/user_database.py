@@ -465,21 +465,20 @@ def Inserta_Sustututo(usuario,art_Ori,art_Nue,receta):
 def Consulta_Direcciones(usuario):
     query = "  select id_tercero_usuario from usuario where id_usuario= '"+usuario+"'"
     conn = Connect()
-    Cursor = conn.cursor()
-    Cursor.execute(query)
-    row = str(Cursor.fetchone())
+    Cursor1 = conn.cursor()
+    Cursor1.execute(query)
+    row = str(Cursor1.fetchone())
     conn.close()
     query=''
     query= " select * from direccion where id_tercero_direccion = '"+str(row[1])+"'"
     conn = Connect()
-    Cursor_02 = conn.cursor()
-    Cursor_02.execute(query)
-    row2= str(Cursor_02.fetchone())
+    Cursor = conn.cursor()
+    Cursor.execute(query)
     lista_1=[]
     dict_1={}
-    if row2!='':
-        for x in Cursor_02:
-            dict_1={'direccion':x[2], 'status':x[3], 'defecto':x[6] }
+    for x in Cursor:
+            dict_1={'direccion':x[2],
+                     'status':x[3] }
             lista_1.append(dict_1)
     conn.close()
     return lista_1
