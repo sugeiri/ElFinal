@@ -319,3 +319,28 @@ def AgregaSust(id):
 if __name__ == '__main__':
     app.debug = True
     app.run()
+
+#Dinnibel
+@app.route('/Conf_Cuenta')
+def Conf_Cuenta():
+    username=''
+    cant=0
+    tipo_user=''
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
+        cant=user_database.Consulta_TotalEnCarro(username)
+        cant = cant[0]
+    return render_template('Conf_Cuenta.html', usuario=username, carrito=cant, Categoria=Categoria, tipo_user=tipo_user)
+@app.route('/Direcciones')
+def Direcciones():
+    username = ''
+    tipo_user = ''
+    if 'username' in session.cookies:
+        username = session.cookies.get('username')
+        tipo_user = session.cookies.get('tipo_user')
+        resultado = user_database.Consulta_Direcciones(username)
+        # split = str(resultado).upper().split('|')
+        Error = str(resultado[2]).upper()
+
+    return render_template('Direcciones.html', usuario=username, Direccion=Error)
