@@ -466,14 +466,20 @@ def Consulta_Direcciones(usuario):
     query = "  select id_tercero_usuario from usuario where id_usuario= '"+usuario+"'"
     conn = Connect()
     Cursor = conn.cursor()
-    sql= " select * from direcciones where id_tercero_direccion = '"+str(Cursor.execute(query))+"'"
-    Cursor_02 = conn.cursor_02()
-    Cursor_02.execute(sql)
-    row= str(Cursor_02.fetchone())
+    Cursor.execute(query)
+    row = str(Cursor.fetchone())
+    conn.close()
+    query=''
+    query= " select * from direccion where id_tercero_direccion = '"+str(row[1])+"'"
+    conn = Connect()
+    Cursor_02 = conn.cursor()
+    Cursor_02.execute(query)
+    row2= str(Cursor_02.fetchone())
     lista_1=[]
     dict_1={}
-    for x in Cursor_02:
-        dict_1={'direccion':x[2], 'status':x[3], 'defecto':x[6] }
-        lista_1.append(dict_1)
+    if row2!='':
+        for x in Cursor_02:
+            dict_1={'direccion':x[2], 'status':x[3], 'defecto':x[6] }
+            lista_1.append(dict_1)
     conn.close()
     return lista_1

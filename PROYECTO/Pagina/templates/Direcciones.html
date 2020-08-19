@@ -94,6 +94,7 @@
 
 <!-- Categories Section Begin -->
 <section class="categories">
+     {% if Direccion != '' %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 p-0">
@@ -101,8 +102,10 @@
                      data-setbg="{{ url_for('static',filename='img/categories/category-1.jpg') }}">
                     <div class="categories__text">
                         <h1>Women’s fashion</h1>
+
                         <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
                             edolore magna aliquapendisse ultrices gravida.</p>
+
                         <a href="#">Shop now</a>
                     </div>
                 </div>
@@ -153,6 +156,7 @@
             </div>
         </div>
     </div>
+      {% endif %}
 </section>
 <!-- Categories Section End -->
 
