@@ -1,0 +1,7 @@
+#!C:\SUGEIRI\utesa\22020\Ingenieria de Software 1\ElFinal\PROYECTO\Pagina\Scripts\python.exe
+
+from domainr import Domain
+
+
+if __name__ == '__main__':
+    Domain().main()

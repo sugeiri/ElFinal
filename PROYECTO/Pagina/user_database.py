@@ -460,20 +460,3 @@ def Inserta_Sustututo(usuario,art_Ori,art_Nue,receta):
         return "00:Insertado"
     except Exception as ex:
         return "EE:No se pudo Agregar Productos al Carrito"+ex
-
-#Dinnibel
-def Consulta_Direcciones(usuario):
-    query = "  select id_tercero_usuario from usuario where id_usuario= '"+usuario+"'"
-    conn = Connect()
-    Cursor = conn.cursor()
-    sql= " select * from direcciones where id_tercero_direccion = '"+str(Cursor.execute(query))+"'"
-    Cursor_02 = conn.cursor_02()
-    Cursor_02.execute(sql)
-    row= str(Cursor_02.fetchone())
-    lista_1=[]
-    dict_1={}
-    for x in Cursor_02:
-        dict_1={'direccion':x[2], 'status':x[3], 'defecto':x[6] }
-        lista_1.append(dict_1)
-    conn.close()
-    return lista_1

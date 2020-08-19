@@ -1,0 +1,55 @@
+
+#Menu .row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+#Menu .row,
+#Menu .row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+#Menu .column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+}
+
+/* Clear floats after rows */
+#Menu .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+#Menu .content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+#Menu .show {
+  display: block;
+}
+
+/* Style the buttons */
+#Menu .btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+#Menu .btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+#Menu .btn.active {
+  background-color: #666;
+   color: white;
+}
