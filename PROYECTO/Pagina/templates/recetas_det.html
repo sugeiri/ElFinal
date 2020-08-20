@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Dream Team</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Css Styles -->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/elegant-icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/magnific-popup.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/slicknav.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a href="/"><img src="{{ url_for('static',filename='img/logo.png') }}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="/">INICIO</a></li>
+                        <li><a href="#">Supermercados</a></li>
+                        <li><a href="#">Comprar</a>
+                            <ul class="dropdown">
+                                {% for cat in Categoria %}
+                                    <li><a href="/shop_xcat/{{ cat['cat'] }}">{{ cat['descr'] }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% if usuario != '' %}
+                            <li><a href="#">CUENTA</a>
+                                <ul class="dropdown">
+                                    <li><a href="/shop-cart">Ver Carrito</a></li>
+                                    <li><a href="/shop-cart">Seguimiento de Compras</a></li>
+                                    <li><a href="/shop-cart">Historial de Compras</a></li>
+                                    <li><a href="/shop-cart">Configuracion de Cuenta</a></li>
+                                    <li><a href="/sign-out">Cerrar Sesion</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        <li><a href="/recetas">Recetas</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__right">
+                    <div class="header__right__auth">
+                        {% if usuario != '' %}
+                            <a href="/Login">{{ usuario }}</a>
+                        {% else %}
+                            <a href="/Login">Login/Register</a>
+                        {% endif %}
+
+                    </div>
+                    <ul class="header__right__widget">
+                        <li><span class="fa fa-search"></span></li>
+                        <li><a href="/shop-cart"><span class="fa fa-shopping-cart"></span>
+                            <div class="tip">{{ carrito }}</div>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="/"><i class="fa fa-home"></i> Inicio</a>
+                    <a href="/recetas">Receta </a>
+                    <a href="#">Detalle </a>
+                    <span>{{ receta['descr'] }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Product Details Section Begin -->
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product__details__pic">
+                    <div class="product__details__slider__content">
+                        <div class="product__details__pic__slider owl-carousel">
+                            <img data-hash="{{ receta['descr'] }}" class="product__big__img"
+                                 src="data:image/png;base64,{{ receta['foto'] }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product__details__text">
+                    <h3>{{ receta['descr'] }}</h3>
+                    <div class="product__details__button">
+                        <div class="quantity">
+                            <span>Porcion:</span>
+                            <div class="cantidad">
+                                <input type="text" value="{{ receta['porcion'] }}" id="porc"
+                                       onchange="calcula_por_porcion(this.value)">
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <h4>Tiempo de Cocci&oacuten: {{ receta['tiempo'] }} Min</h4>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Receta</a>
+                        </li>
+                    </ul>
+                    <form method="POST" action="/agregaCarrito">
+                        <input id="Datos" name="Datos" type="text" hidden>
+                        <div class="product__details__button">
+                            <div class="quantity">
+                                {% if usuario != '' %}
+                                    <button type="submit" class="cart-btn" onclick="Agrega_Todo_Carrito()"><span
+                                            class="fa fa-cart-plus"></span> AGREGAR TODOS LOS PRODUCTOS AL CARRO
+                                    </button>
+                                {% else %}
+                                    <button class="cart-btn" disabled><span
+                                            class="fa fa-cart-plus"></span>
+                                        AGREGAR TODOS LOS PRODUCTOS AL
+                                        CARRO
+                                    </button>
+                                    <p>Debe Inciar Sesion</p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <table id="tableId">
+                                <thead>
+                                <tr>
+                                    <th id="art" style="display:none;"></th>
+                                    <th id="descr"></th>
+                                    <th id="cant_or" style="display:none;"></th>
+                                    <th id="cant">Cant</th>
+                                    <th id="descr_u"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for formula in receta['formula'] %}
+
+                                    <tr>
+                                        <td id="Art" style="display:none;">{{ formula['articulo'] }}</td>
+                                        <td>{{ formula['descr_tipo'] }}</td>
+                                        <td style="display:none;">{{ formula['cant'] }}</td>
+                                        <td>{{ formula['cant'] }}</td>
+                                        <td>{{ formula['descr_unidad'] }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="related__title">
+                    <h5>PRODUCTOS RECOMENDADOS</h5>
+                </div>
+            </div>
+            <form name="Formulario" method="post" action="/SustituirP">
+                <label hidden id="LP">Esta Seguro de Sustituir el Producto:</label>
+                <input type="text" id="Datos2" name="Datos2" hidden>
+                <button hidden type="submit" ID="BE">SI</button>
+                <button hidden type="button" ID="BL" onclick="Limpia_Datos()">NO</button>
+            </form>
+        <form name="Formulario" method="post" action="/agregaCarrito2">
+                <label hidden id="LPG">Esta Seguro de Agregar el Producto:</label>
+                <input type="text" id="Datos3" name="Datos3" hidden>
+                <button hidden type="submit" ID="BEG">SI</button>
+                <button hidden type="button" ID="BLG" onclick="Limpia_Datos()">NO</button>
+            </form>
+            <br>
+            <br>
+            {% for formula in receta['formula'] %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="data:image/png;base64,{{ formula['foto'] }}">
+
+                            <ul class="product__hover">
+                                <li><a onclick="Agrega_Carrito({{ formula['articulo'] }})"><span
+                                        class="fa fa-shopping-basket" style="color: red"></span></a></li>
+                                {% if usuario != '' %}
+                                    {% if not formula['sustituir'] %}
+                                        <li>
+                                            <a onclick="Sustituir({{ formula['articulo'] }})"><span
+                                                    class="fa fa-random" style="color: red"></span></a></li>
+                                    {% endif %}
+                                {% endif %}
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+<!-- Product Details Section End -->
+
+<!-- Footer Section Begin -->
+{% include 'footer.html' %}
+<!-- Footer Section End -->
+
+<!-- Search Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search End -->
+<script>
+    var tables = document.getElementsByTagName('table');
+
+    for (var i = 0; i < tables.length; i++) {
+        resizableGrid(tables[i]);
+    }
+    ;
+
+    function calcula_por_porcion(cant) {
+        var x = document.getElementById("tableId")
+        for (var i = 1; i < x.rows.length; i++) {
+            cant_ori = parseFloat(x.rows[i].cells[2].innerHTML.toString());
+            cant_nueva = cant_nueva = cant_ori * cant;
+            x.rows[i].cells[3].innerHTML = cant_nueva;
+        }
+    }
+
+    function Agrega_Todo_Carrito() {
+        var x = document.getElementById("tableId");
+        var dat = '|';
+        for (var i = 1; i < x.rows.length; i++) {
+            var arti = x.rows[i].cells[0].innerHTML;
+            var cant = x.rows[i].cells[3].innerHTML;
+            var valor = 0;
+            dat = dat + {{ receta['receta'] }} +',' + arti.toString() + ',' + cant.toString() + ',' + valor.toString() + '|';
+
+        }
+        document.getElementById("Datos").value = dat.toString();
+    };
+
+    function Agrega_Carrito(producto) {
+        var x = document.getElementById("tableId");
+        var dat = '|';
+        for (var i = 1; i < x.rows.length; i++) {
+            var arti = x.rows[i].cells[0].innerHTML;
+            if (producto.toString().trim() == arti.toString().trim()) {
+                var cant = x.rows[i].cells[3].innerHTML;
+                var valor = 0;
+                dat = {{ receta['receta'] }} +',' + arti.toString() + ',' + cant.toString() + ',' + valor.toString() + '|';
+                document.getElementById("Datos3").value = dat.toString();
+                break;
+            }
+
+        }
+
+        document.getElementById("LPG").hidden = false;
+        document.getElementById("BEG").hidden = false;
+        document.getElementById("BLG").hidden = false;
+
+        document.getElementById("LP").hidden = true;
+        document.getElementById("BE").hidden = true;
+        document.getElementById("BL").hidden = true;
+    };
+
+    function Limpia_Datos() {
+        document.getElementById("LP").hidden = true;
+        document.getElementById("BE").hidden = true;
+        document.getElementById("BL").hidden = true;
+
+        document.getElementById("LPG").hidden = true;
+        document.getElementById("BEG").hidden = true;
+        document.getElementById("BLG").hidden = true;
+    };
+    function Sustituir(id)
+    {
+        var dat = {{ receta['receta'] }} +'.' + id.toString();
+        document.getElementById("Datos2").value=dat.toString();
+        document.getElementById("LP").hidden = false;
+        document.getElementById("BE").hidden = false;
+        document.getElementById("BL").hidden = false;
+
+        document.getElementById("LPG").hidden = true;
+        document.getElementById("BEG").hidden = true;
+        document.getElementById("BLG").hidden = true;
+
+    }
+    function Mensaje_Log() {
+        alert('Debe Iniciar Sesion');
+    };
+
+</script>
+<!-- Js Plugins -->
+<script src="{{ url_for('static',filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-ui.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/mixitup.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery.slicknav.js') }}"></script>
+<script src="{{ url_for('static',filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</body>
+
+</html>
