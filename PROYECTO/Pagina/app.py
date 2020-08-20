@@ -349,3 +349,7 @@ def Direcciones():
                 i=i+1
 
     return render_template('Direcciones.html', usuario=username, tipo_user=tipo_user, Direccion=Direccion)
+
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html')
