@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="05eeb250-bd61-48de-9107-3d87bd036b39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop-cart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,12 +130,13 @@
       <method v="2" />
     </configuration>
     <configuration name="Pagina" type="Python.FlaskServer">
+      <option name="flaskDebug" value="true" />
       <module name="Pagina" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.7_3.7.2288.0_x64__qbz5n2kfra8p0\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -144,6 +145,11 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Flask server.Pagina" />
+      <item itemvalue="JavaScript Debug.pp.html" />
+      <item itemvalue="Python.user_database" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.pp.html" />
@@ -194,6 +200,7 @@
       <workItem from="1597754929631" duration="837000" />
       <workItem from="1597756556713" duration="718000" />
       <workItem from="1597801917215" duration="8024000" />
+      <workItem from="1597898806290" duration="1504000" />
     </task>
     <servers />
   </component>
@@ -225,10 +232,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="99" key="#Servers/0.0.1366.728@0.0.1366.728" timestamp="1597243079466" />
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597239902059">
+    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597899267948">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1597239902059" />
+    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1597899267948" />
     <state x="433" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597166101950">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -258,25 +265,25 @@
     </state>
     <state width="1074" height="450" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1597673945643" />
     <state width="1074" height="457" key="DebuggerActiveHint/0.0.1366.738@0.0.1366.738" timestamp="1597807510350" />
-    <state width="1286" height="191" key="GridCell.Tab.0.bottom" timestamp="1597811373146">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1323" height="163" key="GridCell.Tab.0.bottom" timestamp="1597900323418">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597757283809" />
+    <state width="1323" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597900323418" />
     <state width="1286" height="191" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1597811373146" />
-    <state width="1286" height="191" key="GridCell.Tab.0.center" timestamp="1597811373146">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1323" height="163" key="GridCell.Tab.0.center" timestamp="1597900323418">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597757283809" />
+    <state width="1323" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597900323418" />
     <state width="1286" height="191" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1597811373146" />
-    <state width="1286" height="191" key="GridCell.Tab.0.left" timestamp="1597811373146">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1323" height="163" key="GridCell.Tab.0.left" timestamp="1597900323418">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597757283809" />
+    <state width="1323" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597900323418" />
     <state width="1286" height="191" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1597811373146" />
-    <state width="1286" height="191" key="GridCell.Tab.0.right" timestamp="1597811373146">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state width="1323" height="163" key="GridCell.Tab.0.right" timestamp="1597900323418">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597757283809" />
+    <state width="1323" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597900323418" />
     <state width="1286" height="191" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1597811373146" />
     <state width="1286" height="191" key="GridCell.Tab.1.bottom" timestamp="1597811424181">
       <screen x="0" y="0" width="1366" height="738" />
@@ -354,12 +361,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>347</line>
+          <line>350</line>
           <option name="timeStamp" value="190" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>350</line>
+          <line>353</line>
           <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -386,7 +393,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597811372991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pagina$user_database.coverage" NAME="user_database Coverage Results" MODIFIED="1596989302709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pagina$Pagina.coverage" NAME="Pagina Coverage Results" MODIFIED="1597899586251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

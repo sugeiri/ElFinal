@@ -295,3 +295,37 @@ grant all on  Precio_Exist_Art to public;
 ----         E=ENVIADO, 
 ----         P=PROCESANDO O PREPARANDO, 
 ----         C=CANCELADO)
+
+
+CREATE TABLE Tipo_pago
+(
+	id_tipo_pago int NOT NULL PRIMARY KEY,
+	descr_tipo_pago varchar(20) NOT NULL,
+	estado_tipo_pago char(1)
+)
+grant all on Tipo_Pago to public;
+
+CREATE TABLE Tipo_pago_usuario
+(
+	id_tpago_usuario int NOT NULL PRIMARY KEY,
+	id_tipo_pago int NOT NULL Constraint [FK_Tipo_pago_usuario_Tipo_pago] FOREIGN KEY REFERENCES Tipo_pago (id_tipo_pago),
+	id_usuario varchar(20) NOT NULL Constraint FK_Tipo_pago_Usuario FOREIGN KEY REFERENCES USUARIO (id_usuario),
+	cod_tipo_pago varchar(20) NOT NULL
+)
+grant all on Tipo_pago_usuario to public;
+
+
+
+CREATE TABLE Tipo_pago_compra
+(
+	id_tpago_comp int NOT NULL PRIMARY KEY,
+	id_tipo_pago int NOT NULL Constraint FK_Tipo_pago_compra_Tipo_pago_usuario FOREIGN KEY REFERENCES Tipo_pago_usuario(id_tpago_usuario),
+	id_compra int NOT NULL Constraint FK_Tipo_pago_compra_Compra FOREIGN KEY REFERENCES compra(Id_compra)
+
+)
+grant all on Tipo_pago_compra to public;
+
+
+
+
+
